@@ -6,48 +6,18 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://blog.canying.org">
-  <title>openpyxl操作excel文件 | canying的博客</title>
+  <title>canying的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="这个完全是为了熟悉hexo和markdown语法，上周末生日，来自一位朋友的工作需求
-
-需求描述需要将目录中的每一行数据分别建立单独的工作表，应用工作表1的模板，并填入对于应的数据（红色框部分）
-
-
-实现效果：
-实现过程第一步：批量生成指定名称的工作表，excel可直接操作
-选中“桥梁名称”列，先Alt+D，再Alt+P，插入数据透视表
-在数据透视表字段，将“桥梁名称”拖拽到筛选区域
-透视表“选">
-<meta property="og:type" content="article">
-<meta property="og:title" content="openpyxl操作excel文件">
+  <meta property="og:type" content="article">
+<meta property="og:title" content="canying的博客">
 <meta property="og:url" content="http://blog.canying.org/2016/12/31/test/index.html">
 <meta property="og:site_name" content="canying的博客">
-<meta property="og:description" content="这个完全是为了熟悉hexo和markdown语法，上周末生日，来自一位朋友的工作需求
-
-需求描述需要将目录中的每一行数据分别建立单独的工作表，应用工作表1的模板，并填入对于应的数据（红色框部分）
-
-
-实现效果：
-实现过程第一步：批量生成指定名称的工作表，excel可直接操作
-选中“桥梁名称”列，先Alt+D，再Alt+P，插入数据透视表
-在数据透视表字段，将“桥梁名称”拖拽到筛选区域
-透视表“选">
 <meta property="og:image" content="http://i1.piimg.com/567571/7b7b3f529bc43078.png">
 <meta property="og:image" content="http://i1.piimg.com/567571/c201f090d2a42726.png">
 <meta property="og:image" content="http://p1.bpimg.com/567571/ddb0b210b626cbd3.png">
-<meta property="og:updated_time" content="2016-12-31T06:35:53.424Z">
+<meta property="og:updated_time" content="2016-12-31T07:03:32.131Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="openpyxl操作excel文件">
-<meta name="twitter:description" content="这个完全是为了熟悉hexo和markdown语法，上周末生日，来自一位朋友的工作需求
-
-需求描述需要将目录中的每一行数据分别建立单独的工作表，应用工作表1的模板，并填入对于应的数据（红色框部分）
-
-
-实现效果：
-实现过程第一步：批量生成指定名称的工作表，excel可直接操作
-选中“桥梁名称”列，先Alt+D，再Alt+P，插入数据透视表
-在数据透视表字段，将“桥梁名称”拖拽到筛选区域
-透视表“选">
+<meta name="twitter:title" content="canying的博客">
 <meta name="twitter:image" content="http://i1.piimg.com/567571/7b7b3f529bc43078.png">
   
     <link rel="alternative" href="/atom.xml" title="canying的博客" type="application/atom+xml">
@@ -185,22 +155,13 @@
             <article id="post-test" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
-      <header class="article-header">
-        
-  
-    <h1 class="article-title" itemprop="name">
-      openpyxl操作excel文件
-    </h1>
-  
-
-        <a href="/2016/12/31/test/" class="archive-article-date">
-  	<time datetime="2016-12-31T02:46:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-12-31</time>
-</a>
-      </header>
-    
     <div class="article-entry" itemprop="articleBody">
       
-        
+        <h2 id=""><a href="#" class="headerlink" title=""></a><a id="more"></a></h2><p>title: openpyxl操作excel文件<br>date: 2016-12-31 10:46:29<br>tags:</p>
+<pre><code>- python
+- excel
+</code></pre><p>categories: tech</p>
+<h2 id="comments-true"><a href="#comments-true" class="headerlink" title="comments: true"></a>comments: true</h2>
 这个完全是为了熟悉hexo和markdown语法，上周末生日，来自一位朋友的工作需求
 
 <h3 id="需求描述"><a href="#需求描述" class="headerlink" title="需求描述"></a>需求描述</h3><p>需要将目录中的每一行数据分别建立单独的工作表，应用工作表1的模板，并填入对于应的数据（红色框部分）</p>
@@ -214,7 +175,7 @@
 </ol>
 <p>参考：<a href="http://jingyan.baidu.com/article/6fb756ec8c6703241858fbba.html" target="_blank" rel="external">http://jingyan.baidu.com/article/6fb756ec8c6703241858fbba.html</a></p>
 <h4 id="第二步：复制模板到各个工作表"><a href="#第二步：复制模板到各个工作表" class="headerlink" title="第二步：复制模板到各个工作表"></a>第二步：复制模板到各个工作表</h4><p>这里只需要复制模板，全选模板内容，按住shift全选工作表，Ctrl+V复制即可</p>
-<h4 id="第三步：填入数据"><a href="#第三步：填入数据" class="headerlink" title="第三步：填入数据"></a>第三步：填入数据</h4><p>这不应该是可以直接用excel完成的，比较菜，不会，选择了python <em>openpyxl</em> 模块操作excel的方式<br>参考openpyxl文档：<a href="http://openpyxl.readthedocs.io/en/default/usage.html" target="_blank" rel="external">http://openpyxl.readthedocs.io/en/default/usage.html</a></p>
+<h4 id="第三步：填入数据"><a href="#第三步：填入数据" class="headerlink" title="第三步：填入数据"></a>第三步：填入数据</h4><p>这应该是可以直接用excel完成的，比较菜，不会，选择了python <em>openpyxl</em> 模块操作excel的方式<br>参考openpyxl文档：<a href="http://openpyxl.readthedocs.io/en/default/usage.html" target="_blank" rel="external">http://openpyxl.readthedocs.io/en/default/usage.html</a></p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># -*- coding:utf-8 -*-</span></div><div class="line"><span class="keyword">from</span> openpyxl <span class="keyword">import</span> load_workbook</div><div class="line"><span class="keyword">import</span> sys</div><div class="line">reload(sys)</div><div class="line">sys.setdefaultencoding(<span class="string">'utf-8'</span>)</div><div class="line">wb = load_workbook(filename = <span class="string">u"xxx.xlsx"</span>)</div><div class="line"></div><div class="line">ws1 = wb.get_sheet_by_name(wb.get_sheet_names()[<span class="number">-2</span>])</div><div class="line"><span class="keyword">print</span> ws1.title</div><div class="line">hangshu = ws1.get_highest_row()</div><div class="line"></div><div class="line">content = &#123;&#125;</div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">get_content</span><span class="params">()</span>:</span></div><div class="line">	<span class="keyword">for</span> i <span class="keyword">in</span> range(<span class="number">2</span>,<span class="number">217</span>):</div><div class="line">		<span class="keyword">if</span> i &lt; <span class="number">11</span>:</div><div class="line">			key = <span class="string">'00'</span> + str(i<span class="number">-1</span>)</div><div class="line">		<span class="keyword">elif</span> i &lt; <span class="number">101</span>:</div><div class="line">			key = <span class="string">'0'</span> + str(i<span class="number">-1</span>)</div><div class="line">		<span class="keyword">else</span>:</div><div class="line">			key =  str(i<span class="number">-1</span>)</div><div class="line">		name_index = <span class="string">'C'</span> + str(i)</div><div class="line">		bianhao_index = <span class="string">'B'</span> + str(i)</div><div class="line">		dengji_index = <span class="string">'H'</span> + str(i)</div><div class="line">		xunhao_index = <span class="string">'K'</span> + str(i)</div><div class="line">		name = ws1[name_index].value</div><div class="line">		keyname = key + name</div><div class="line">		bianhao = ws1[bianhao_index].value</div><div class="line">		dengji = ws1[dengji_index].value</div><div class="line">		xunhao = ws1[xunhao_index].value</div><div class="line">		</div><div class="line">		content[keyname] = [bianhao, dengji, xunhao, name]	</div><div class="line">	<span class="keyword">return</span> content</div><div class="line"></div><div class="line">content = get_content()</div><div class="line"></div><div class="line">ll = <span class="number">0</span></div><div class="line"><span class="keyword">for</span> j <span class="keyword">in</span> wb.get_sheet_names():</div><div class="line">	<span class="keyword">print</span> j</div><div class="line">	<span class="keyword">print</span> content[j][<span class="number">3</span>]</div><div class="line">	wb.get_sheet_by_name(j)[<span class="string">'B3'</span>] = content[j][<span class="number">3</span>]</div><div class="line">	wb.get_sheet_by_name(j)[<span class="string">'D3'</span>] = content[j][<span class="number">0</span>]</div><div class="line">	wb.get_sheet_by_name(j)[<span class="string">'F3'</span>] = content[j][<span class="number">1</span>]</div><div class="line">	wb.get_sheet_by_name(j)[<span class="string">'F26'</span>] = content[j][<span class="number">2</span>]</div><div class="line">	</div><div class="line">	ll += <span class="number">1</span></div><div class="line">	<span class="keyword">if</span> ll &gt; <span class="number">214</span>:</div><div class="line">		<span class="keyword">break</span> </div><div class="line"></div><div class="line">wb.save(filename = <span class="string">'aaa_test1.xlsx'</span>)</div></pre></td></tr></table></figure>
 
       
@@ -245,17 +206,7 @@
     <div class="article-info article-info-index">
       
       
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/excel/">excel</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
-	</div>
-
       
-	<div class="article-category tagcloud">
-	<i class="icon-book icon"></i>
-	<a class="article-category-link" href="/categories/tech/">tech</a>
-	</div>
-
 
       
 
@@ -393,14 +344,6 @@
             <input type="checkbox" q-on="click:toggleTag(e)" q-attr="checked:showTags">
           </label>
           <ul class="article-tag-list" q-show="showTags">
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)">python</a>
-              </li>
-             
-              <li class="article-tag-list-item">
-                <a href="javascript:void(0)">excel</a>
-              </li>
             
             <div class="clearfix"></div>
           </ul>
