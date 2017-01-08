@@ -8,67 +8,16 @@
   <link rel="dns-prefetch" href="http://blog.canying.org">
   <title>python Collection类 | canying的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="python collections具体实现方法参考文档：https://docs.python.org/3/library/collections.html
-
-
-container datetypes
-abstract
-Cool
-
-
-
-
-deque
-双端序列
-一个洗手间一次只能进一个人
-
-
-Counter
-统计hashable objects
-类似sql中的sum(A)…group by id">
+  <meta name="description" content="python collections  具体实现方法参考文档：https://docs.python.org/3/library/collections.html| container datetypes        | abstract           | Cool  || ————- |:————-:| —–:|| deque      | 双端序列 | 同一条河流只能被一个人踏入 ||">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python Collection类">
 <meta property="og:url" content="http://blog.canying.org/2017/01/08/python-Collection类/index.html">
 <meta property="og:site_name" content="canying的博客">
-<meta property="og:description" content="python collections具体实现方法参考文档：https://docs.python.org/3/library/collections.html
-
-
-container datetypes
-abstract
-Cool
-
-
-
-
-deque
-双端序列
-一个洗手间一次只能进一个人
-
-
-Counter
-统计hashable objects
-类似sql中的sum(A)…group by id">
-<meta property="og:updated_time" content="2017-01-08T06:47:14.481Z">
+<meta property="og:description" content="python collections  具体实现方法参考文档：https://docs.python.org/3/library/collections.html| container datetypes        | abstract           | Cool  || ————- |:————-:| —–:|| deque      | 双端序列 | 同一条河流只能被一个人踏入 ||">
+<meta property="og:updated_time" content="2017-01-08T06:52:21.781Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python Collection类">
-<meta name="twitter:description" content="python collections具体实现方法参考文档：https://docs.python.org/3/library/collections.html
-
-
-container datetypes
-abstract
-Cool
-
-
-
-
-deque
-双端序列
-一个洗手间一次只能进一个人
-
-
-Counter
-统计hashable objects
-类似sql中的sum(A)…group by id">
+<meta name="twitter:description" content="python collections  具体实现方法参考文档：https://docs.python.org/3/library/collections.html| container datetypes        | abstract           | Cool  || ————- |:————-:| —–:|| deque      | 双端序列 | 同一条河流只能被一个人踏入 ||">
   
     <link rel="alternative" href="/atom.xml" title="canying的博客" type="application/atom+xml">
   
@@ -220,55 +169,20 @@ Counter
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="python-collections"><a href="#python-collections" class="headerlink" title="python collections"></a>python collections</h3><h3 id="具体实现方法参考文档：https-docs-python-org-3-library-collections-html"><a href="#具体实现方法参考文档：https-docs-python-org-3-library-collections-html" class="headerlink" title="具体实现方法参考文档：https://docs.python.org/3/library/collections.html"></a>具体实现方法参考文档：<a href="https://docs.python.org/3/library/collections.html" target="_blank" rel="external">https://docs.python.org/3/library/collections.html</a></h3><table>
-<thead>
-<tr>
-<th>container datetypes</th>
-<th style="text-align:center">abstract</th>
-<th style="text-align:right">Cool</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>deque</td>
-<td style="text-align:center">双端序列</td>
-<td style="text-align:right">一个洗手间一次只能进一个人</td>
-</tr>
-<tr>
-<td>Counter</td>
-<td style="text-align:center">统计hashable objects</td>
-<td style="text-align:right">类似sql中的sum(A)…group by id</td>
-</tr>
-<tr>
-<td>OrderedDict</td>
-<td style="text-align:center">顺序存取的字典</td>
-<td style="text-align:right">None</td>
-</tr>
-<tr>
-<td>defaultdict</td>
-<td style="text-align:center">key不存在时，赋予value默认值</td>
-<td style="text-align:right">实时统计玩家参与某副本的次数</td>
-</tr>
-<tr>
-<td>namedtuple()</td>
-<td style="text-align:center">使tuple内的元素有自己的名称</td>
-<td style="text-align:right">坐标（x，y）</td>
-</tr>
-</tbody>
-</table>
+        <h3 id="python-collections"><a href="#python-collections" class="headerlink" title="python collections"></a>python collections</h3><p>  具体实现方法参考文档：<a href="https://docs.python.org/3/library/collections.html" target="_blank" rel="external">https://docs.python.org/3/library/collections.html</a><br>| container datetypes        | abstract           | Cool  |<br>| ————- |:————-:| —–:|<br>| deque      | 双端序列 | 同一条河流只能被一个人踏入 |<br>| Counter      | 统计hashable objects      |   类似sql中的sum(A)…group by id |<br>| OrderedDict | 顺序存取的字典      |    None |<br>| defaultdict | key不存在时，赋予value默认值      |    实时统计玩家参与某副本的次数 |<br>| namedtuple() | 使tuple内的元素有自己的名称      |    坐标（x，y） |</p>
 <a id="more"></a> 
 <p>还有一些其他的类如<em>ChainMap</em>，暂时未归纳</p>
 <h4 id="主要说说defaultdict这个类想到的一些东西"><a href="#主要说说defaultdict这个类想到的一些东西" class="headerlink" title="主要说说defaultdict这个类想到的一些东西"></a>主要说说<em>defaultdict</em>这个类想到的一些东西</h4><ol>
 <li>在实时获取玩家参与某个玩家的次数时，由于玩家id唯一，一般作为key，使用dict比较方便，还可以应用<em>json</em> （听说有另外一个ujson更好用，慢慢看吧）格式进行交互，但是一开始没有进入统计范围的玩家，获取key时会报错，使用<em>defaultdict</em>可以解决这个问题</li>
 </ol>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">In [7]: d = &#123;&#125;</div><div class="line"></div><div class="line">In [8]: d[&apos;a&apos;]</div><div class="line">---------------------------------------------------------------------------</div><div class="line">KeyError                                  Traceback (most recent call last)</div><div class="line">&lt;ipython-input-8-169a40407b7f&gt; in &lt;module&gt;()</div><div class="line">----&gt; 1 d[&apos;a&apos;]</div><div class="line"></div><div class="line">KeyError: &apos;a&apos;</div></pre></td></tr></table></figure>
+<figure class="highlight"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">In [7]: d = &#123;&#125;</div><div class="line"></div><div class="line">In [8]: d['a']</div><div class="line">---------------------------------------------------------------------------</div><div class="line">KeyError                                  Traceback (most recent call last)</div><div class="line">&lt;ipython-input-8-169a40407b7f&gt; in &lt;module&gt;()</div><div class="line">----&gt; 1 d['a']</div><div class="line"></div><div class="line">KeyError: 'a'</div></pre></td></tr></table></figure>
 <hr>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">In [4]: from collections import defaultdict</div><div class="line"></div><div class="line">In [5]: d = defaultdict(int)</div><div class="line"></div><div class="line">In [6]: d[&apos;a&apos;]</div><div class="line">Out[6]: 0</div></pre></td></tr></table></figure>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">In [<span class="number">4</span>]: <span class="keyword">from</span> collections <span class="keyword">import</span> defaultdict</div><div class="line"></div><div class="line">In [<span class="number">5</span>]: d = defaultdict(int)</div><div class="line"></div><div class="line">In [<span class="number">6</span>]: d[<span class="string">'a'</span>]</div><div class="line">Out[<span class="number">6</span>]: <span class="number">0</span></div></pre></td></tr></table></figure>
 <ol>
-<li>实现hive中collect_all() 函数的函数,本来想在sqlite3上实现一下，但貌似不支持这个方法。<br>| color        | count           |<br>| ————- |:————-:|<br>| yellow      | 1 |<br>| blue      | 2      |<br>| yellow | 3      |<br>| blue | 4      |<br>| red | 1      |  </li>
+<li>实现hive中collect_all() 函数的函数,本来想在sqlite3上实现一下，但貌似不支持这个方法。<br>| color | count |<br>| ————- |:————-:|<br>| yellow    | 1    |<br>| blue     | 2    |<br>| yellow | 3    |<br>| blue | 4    |<br>| red | 1     |  </li>
 </ol>
 <h5 id="hive-sql"><a href="#hive-sql" class="headerlink" title="hive sql"></a>hive sql</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">select color, collect_list(count) from test group by color</div></pre></td></tr></table></figure>
-<h5 id="difaultdict"><a href="#difaultdict" class="headerlink" title="difaultdict"></a>difaultdict</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">In [19]: s = [(&apos;yellow&apos;, 1), (&apos;blue&apos;, 2), (&apos;yellow&apos;, 3), (&apos;blue&apos;, 4), (&apos;red&apos;, 1)]</div><div class="line"></div><div class="line">In [20]: d = defaultdict(list)</div><div class="line"></div><div class="line">In [21]: for k, v in s:</div><div class="line">    ...:     d[k].append(v)</div><div class="line">    ...:</div><div class="line"></div><div class="line">In [22]: d</div><div class="line">Out[22]: defaultdict(list, &#123;&apos;blue&apos;: [2, 4], &apos;red&apos;: [1], &apos;yellow&apos;: [1, 3]&#125;)</div></pre></td></tr></table></figure>
+<h5 id="difaultdict"><a href="#difaultdict" class="headerlink" title="difaultdict"></a>difaultdict</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">In [<span class="number">19</span>]: s = [(<span class="string">'yellow'</span>, <span class="number">1</span>), (<span class="string">'blue'</span>, <span class="number">2</span>), (<span class="string">'yellow'</span>, <span class="number">3</span>), (<span class="string">'blue'</span>, <span class="number">4</span>), (<span class="string">'red'</span>, <span class="number">1</span>)]</div><div class="line"></div><div class="line">In [<span class="number">20</span>]: d = defaultdict(list)</div><div class="line"></div><div class="line">In [<span class="number">21</span>]: <span class="keyword">for</span> k, v <span class="keyword">in</span> s:</div><div class="line">    ...:     d[k].append(v)</div><div class="line">    ...:</div><div class="line"></div><div class="line">In [<span class="number">22</span>]: d</div><div class="line">Out[<span class="number">22</span>]: defaultdict(list, &#123;<span class="string">'blue'</span>: [<span class="number">2</span>, <span class="number">4</span>], <span class="string">'red'</span>: [<span class="number">1</span>], <span class="string">'yellow'</span>: [<span class="number">1</span>, <span class="number">3</span>]&#125;)</div></pre></td></tr></table></figure>
 <p>中午没吃饭，又困又饿…</p>
 
       
