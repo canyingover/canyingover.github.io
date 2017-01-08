@@ -8,16 +8,79 @@
   <link rel="dns-prefetch" href="http://blog.canying.org">
   <title>python Collection类 | canying的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="python collections  具体实现方法参考文档：https://docs.python.org/3/library/collections.html| container datetypes        | abstract           | Cool  || ————- |:————-:| —–:|| deque      | 双端序列 | 同一条河流只能被一个人踏入 ||">
+  <meta name="description" content="python collections  具体实现方法参考文档：https://docs.python.org/3/library/collections.html
+
+
+
+container datetypes
+abstract
+Cool
+
+
+
+
+deque
+双端序列
+有得必有失
+
+
+Counter
+统计hashable objects
+类似sql中的sum(A)…group by id
+
+
+Ord">
 <meta property="og:type" content="article">
 <meta property="og:title" content="python Collection类">
 <meta property="og:url" content="http://blog.canying.org/2017/01/08/python-Collection类/index.html">
 <meta property="og:site_name" content="canying的博客">
-<meta property="og:description" content="python collections  具体实现方法参考文档：https://docs.python.org/3/library/collections.html| container datetypes        | abstract           | Cool  || ————- |:————-:| —–:|| deque      | 双端序列 | 同一条河流只能被一个人踏入 ||">
-<meta property="og:updated_time" content="2017-01-08T06:52:21.781Z">
+<meta property="og:description" content="python collections  具体实现方法参考文档：https://docs.python.org/3/library/collections.html
+
+
+
+container datetypes
+abstract
+Cool
+
+
+
+
+deque
+双端序列
+有得必有失
+
+
+Counter
+统计hashable objects
+类似sql中的sum(A)…group by id
+
+
+Ord">
+<meta property="og:updated_time" content="2017-01-08T06:55:09.818Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="python Collection类">
-<meta name="twitter:description" content="python collections  具体实现方法参考文档：https://docs.python.org/3/library/collections.html| container datetypes        | abstract           | Cool  || ————- |:————-:| —–:|| deque      | 双端序列 | 同一条河流只能被一个人踏入 ||">
+<meta name="twitter:description" content="python collections  具体实现方法参考文档：https://docs.python.org/3/library/collections.html
+
+
+
+container datetypes
+abstract
+Cool
+
+
+
+
+deque
+双端序列
+有得必有失
+
+
+Counter
+统计hashable objects
+类似sql中的sum(A)…group by id
+
+
+Ord">
   
     <link rel="alternative" href="/atom.xml" title="canying的博客" type="application/atom+xml">
   
@@ -169,7 +232,43 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <h3 id="python-collections"><a href="#python-collections" class="headerlink" title="python collections"></a>python collections</h3><p>  具体实现方法参考文档：<a href="https://docs.python.org/3/library/collections.html" target="_blank" rel="external">https://docs.python.org/3/library/collections.html</a><br>| container datetypes        | abstract           | Cool  |<br>| ————- |:————-:| —–:|<br>| deque      | 双端序列 | 同一条河流只能被一个人踏入 |<br>| Counter      | 统计hashable objects      |   类似sql中的sum(A)…group by id |<br>| OrderedDict | 顺序存取的字典      |    None |<br>| defaultdict | key不存在时，赋予value默认值      |    实时统计玩家参与某副本的次数 |<br>| namedtuple() | 使tuple内的元素有自己的名称      |    坐标（x，y） |</p>
+        <h3 id="python-collections"><a href="#python-collections" class="headerlink" title="python collections"></a>python collections</h3><p>  具体实现方法参考文档：<a href="https://docs.python.org/3/library/collections.html" target="_blank" rel="external">https://docs.python.org/3/library/collections.html</a></p>
+<table>
+<thead>
+<tr>
+<th>container datetypes</th>
+<th style="text-align:center">abstract</th>
+<th style="text-align:right">Cool</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>deque</td>
+<td style="text-align:center">双端序列</td>
+<td style="text-align:right">有得必有失</td>
+</tr>
+<tr>
+<td>Counter</td>
+<td style="text-align:center">统计hashable objects</td>
+<td style="text-align:right">类似sql中的sum(A)…group by id</td>
+</tr>
+<tr>
+<td>OrderedDict</td>
+<td style="text-align:center">顺序存取的字典</td>
+<td style="text-align:right">None</td>
+</tr>
+<tr>
+<td>defaultdict</td>
+<td style="text-align:center">key不存在时，赋予value默认值</td>
+<td style="text-align:right">实时统计玩家参与某副本的次数</td>
+</tr>
+<tr>
+<td>namedtuple()</td>
+<td style="text-align:center">使tuple内的元素有自己的名称</td>
+<td style="text-align:right">坐标（x，y）</td>
+</tr>
+</tbody>
+</table>
 <a id="more"></a> 
 <p>还有一些其他的类如<em>ChainMap</em>，暂时未归纳</p>
 <h4 id="主要说说defaultdict这个类想到的一些东西"><a href="#主要说说defaultdict这个类想到的一些东西" class="headerlink" title="主要说说defaultdict这个类想到的一些东西"></a>主要说说<em>defaultdict</em>这个类想到的一些东西</h4><ol>
@@ -179,8 +278,38 @@
 <hr>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">In [<span class="number">4</span>]: <span class="keyword">from</span> collections <span class="keyword">import</span> defaultdict</div><div class="line"></div><div class="line">In [<span class="number">5</span>]: d = defaultdict(int)</div><div class="line"></div><div class="line">In [<span class="number">6</span>]: d[<span class="string">'a'</span>]</div><div class="line">Out[<span class="number">6</span>]: <span class="number">0</span></div></pre></td></tr></table></figure>
 <ol>
-<li>实现hive中collect_all() 函数的函数,本来想在sqlite3上实现一下，但貌似不支持这个方法。<br>| color | count |<br>| ————- |:————-:|<br>| yellow    | 1    |<br>| blue     | 2    |<br>| yellow | 3    |<br>| blue | 4    |<br>| red | 1     |  </li>
+<li>实现hive中collect_all() 函数的函数,本来想在sqlite3上实现一下，但貌似不支持这个方法。</li>
 </ol>
+<table>
+<thead>
+<tr>
+<th>color</th>
+<th style="text-align:center">count</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>yellow</td>
+<td style="text-align:center">1</td>
+</tr>
+<tr>
+<td>blue</td>
+<td style="text-align:center">2</td>
+</tr>
+<tr>
+<td>yellow</td>
+<td style="text-align:center">3</td>
+</tr>
+<tr>
+<td>blue</td>
+<td style="text-align:center">4</td>
+</tr>
+<tr>
+<td>red</td>
+<td style="text-align:center">1</td>
+</tr>
+</tbody>
+</table>
 <h5 id="hive-sql"><a href="#hive-sql" class="headerlink" title="hive sql"></a>hive sql</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">select color, collect_list(count) from test group by color</div></pre></td></tr></table></figure>
 <h5 id="difaultdict"><a href="#difaultdict" class="headerlink" title="difaultdict"></a>difaultdict</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">In [<span class="number">19</span>]: s = [(<span class="string">'yellow'</span>, <span class="number">1</span>), (<span class="string">'blue'</span>, <span class="number">2</span>), (<span class="string">'yellow'</span>, <span class="number">3</span>), (<span class="string">'blue'</span>, <span class="number">4</span>), (<span class="string">'red'</span>, <span class="number">1</span>)]</div><div class="line"></div><div class="line">In [<span class="number">20</span>]: d = defaultdict(list)</div><div class="line"></div><div class="line">In [<span class="number">21</span>]: <span class="keyword">for</span> k, v <span class="keyword">in</span> s:</div><div class="line">    ...:     d[k].append(v)</div><div class="line">    ...:</div><div class="line"></div><div class="line">In [<span class="number">22</span>]: d</div><div class="line">Out[<span class="number">22</span>]: defaultdict(list, &#123;<span class="string">'blue'</span>: [<span class="number">2</span>, <span class="number">4</span>], <span class="string">'red'</span>: [<span class="number">1</span>], <span class="string">'yellow'</span>: [<span class="number">1</span>, <span class="number">3</span>]&#125;)</div></pre></td></tr></table></figure>
 <p>中午没吃饭，又困又饿…</p>
