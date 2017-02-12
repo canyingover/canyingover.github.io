@@ -9,21 +9,21 @@
   <title>pytho多进程与多线程 | canying的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
   <meta name="description" content="—五花马,千金裘,呼儿将出换美酒,与尔同销万古愁。
-越来越觉得自己对这些东西一知半解…折腾了好久，今天整理一下我一知半解的 #python多进程与多线程# 毕竟每周还是应该多少有点什么值得记下来…
-首先理解：进程&amp;gt;线程（不知道可不可以这样讲），进程里至少有一个线程，线程之间共享内存空间，有其他进程占用内存空间时，需要等待内存闲置。一篇文章：关于进程和线程区别的类比：http://www.ru">
+越来越觉得自己对这些东西一知半解…折腾了好久，今天整理一下我一知半解的 python多进程与多线程 毕竟每周还是应该多少有点什么值得记下来…
+首先理解：进程&amp;gt;线程（不知道可不可以这样讲），进程里至少有一个线程，线程之间共享内存空间，有其他进程占用内存空间时，需要等待内存闲置。一篇文章：关于进程和线程区别的类比：http://www.ruan">
 <meta property="og:type" content="article">
 <meta property="og:title" content="pytho多进程与多线程">
 <meta property="og:url" content="http://blog.canying.org/2017/02/12/pytho多进程与多线程/index.html">
 <meta property="og:site_name" content="canying的博客">
 <meta property="og:description" content="—五花马,千金裘,呼儿将出换美酒,与尔同销万古愁。
-越来越觉得自己对这些东西一知半解…折腾了好久，今天整理一下我一知半解的 #python多进程与多线程# 毕竟每周还是应该多少有点什么值得记下来…
-首先理解：进程&amp;gt;线程（不知道可不可以这样讲），进程里至少有一个线程，线程之间共享内存空间，有其他进程占用内存空间时，需要等待内存闲置。一篇文章：关于进程和线程区别的类比：http://www.ru">
-<meta property="og:updated_time" content="2017-02-12T04:46:12.040Z">
+越来越觉得自己对这些东西一知半解…折腾了好久，今天整理一下我一知半解的 python多进程与多线程 毕竟每周还是应该多少有点什么值得记下来…
+首先理解：进程&amp;gt;线程（不知道可不可以这样讲），进程里至少有一个线程，线程之间共享内存空间，有其他进程占用内存空间时，需要等待内存闲置。一篇文章：关于进程和线程区别的类比：http://www.ruan">
+<meta property="og:updated_time" content="2017-02-12T05:02:03.868Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="pytho多进程与多线程">
 <meta name="twitter:description" content="—五花马,千金裘,呼儿将出换美酒,与尔同销万古愁。
-越来越觉得自己对这些东西一知半解…折腾了好久，今天整理一下我一知半解的 #python多进程与多线程# 毕竟每周还是应该多少有点什么值得记下来…
-首先理解：进程&amp;gt;线程（不知道可不可以这样讲），进程里至少有一个线程，线程之间共享内存空间，有其他进程占用内存空间时，需要等待内存闲置。一篇文章：关于进程和线程区别的类比：http://www.ru">
+越来越觉得自己对这些东西一知半解…折腾了好久，今天整理一下我一知半解的 python多进程与多线程 毕竟每周还是应该多少有点什么值得记下来…
+首先理解：进程&amp;gt;线程（不知道可不可以这样讲），进程里至少有一个线程，线程之间共享内存空间，有其他进程占用内存空间时，需要等待内存闲置。一篇文章：关于进程和线程区别的类比：http://www.ruan">
   
     <link rel="alternative" href="/atom.xml" title="canying的博客" type="application/atom+xml">
   
@@ -163,7 +163,7 @@
     <div class="article-entry" itemprop="articleBody">
       
         <p><em>—五花马,千金裘,呼儿将出换美酒,与尔同销万古愁。</em></p>
-<p>越来越觉得自己对这些东西一知半解…<br>折腾了好久，今天整理一下我一知半解的 #python多进程与多线程# 毕竟每周还是应该多少有点什么值得记下来…</p>
+<p>越来越觉得自己对这些东西一知半解…<br>折腾了好久，今天整理一下我一知半解的 <code>python多进程与多线程</code> 毕竟每周还是应该多少有点什么值得记下来…</p>
 <p>首先理解：进程&gt;线程（不知道可不可以这样讲），进程里至少有一个线程，线程之间共享内存空间，有其他进程占用内存空间时，需要等待内存闲置。<br>一篇文章：关于进程和线程区别的类比：<br><a href="http://www.ruanyifeng.com/blog/2013/04/processes_and_threads.html" target="_blank" rel="external">http://www.ruanyifeng.com/blog/2013/04/processes_and_threads.html</a></p>
 <h2 id="一、多进程"><a href="#一、多进程" class="headerlink" title="一、多进程"></a>一、多进程</h2><p>1.创建多进程的：使用<em>multiprocess</em>模块的<em>Process</em>类</p>
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> multiprocessing <span class="keyword">import</span> Process</div><div class="line"><span class="keyword">import</span> os</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">test</span><span class="params">(name)</span>:</span></div><div class="line"></div><div class="line">    <span class="comment"># os模块的getpid()方法可以获取当前进程的进程id</span></div><div class="line">    <span class="keyword">print</span> <span class="string">'Run process %s (%s)...'</span> % (name, os.getpid())</div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line"></div><div class="line">    <span class="keyword">print</span> <span class="string">'Main process %s.'</span> % os.getpid()</div><div class="line">    <span class="comment"># 创建一个进程</span></div><div class="line">    p = Process(target=test, args=(<span class="string">'process1'</span>,))</div><div class="line">    p.start()  <span class="comment"># 调用start()方法，开始执行子进程</span></div><div class="line">    p.join()  <span class="comment"># 调用进程的join()方法，来阻塞除当前进程以外的所有进程,相当于是上锁的操作</span></div><div class="line">    <span class="keyword">print</span> <span class="string">'test finished!'</span></div></pre></td></tr></table></figure>
