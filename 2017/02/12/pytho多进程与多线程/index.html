@@ -6,14 +6,21 @@
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge" >
   <link rel="dns-prefetch" href="http://blog.canying.org">
-  <title>canying的博客</title>
+  <title>pytho多进程与多线程 | canying的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta property="og:type" content="website">
-<meta property="og:title" content="canying的博客">
-<meta property="og:url" content="http://blog.canying.org/index.html">
+  <meta name="description" content="五花马,千金裘,呼儿将出换美酒,与尔同销万古愁。越来越觉得自己对这些东西一知半解…折腾了好久，今天整理一下我一知半解的，python多进程与多线程，毕竟每周还是得多少有点什么值得记录…
+首先理解：进程&amp;gt;线程（不知道可不可以这样讲），进程里至少有个线程，线程之间共享内存空间，有其他进程占用内存空间时，需要等待内存闲置。一篇文章：关于进程和线程区别的类比：http://www.ruanyifen">
+<meta property="og:type" content="article">
+<meta property="og:title" content="pytho多进程与多线程">
+<meta property="og:url" content="http://blog.canying.org/2017/02/12/pytho多进程与多线程/index.html">
 <meta property="og:site_name" content="canying的博客">
+<meta property="og:description" content="五花马,千金裘,呼儿将出换美酒,与尔同销万古愁。越来越觉得自己对这些东西一知半解…折腾了好久，今天整理一下我一知半解的，python多进程与多线程，毕竟每周还是得多少有点什么值得记录…
+首先理解：进程&amp;gt;线程（不知道可不可以这样讲），进程里至少有个线程，线程之间共享内存空间，有其他进程占用内存空间时，需要等待内存闲置。一篇文章：关于进程和线程区别的类比：http://www.ruanyifen">
+<meta property="og:updated_time" content="2017-02-12T04:37:59.104Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="canying的博客">
+<meta name="twitter:title" content="pytho多进程与多线程">
+<meta name="twitter:description" content="五花马,千金裘,呼儿将出换美酒,与尔同销万古愁。越来越觉得自己对这些东西一知半解…折腾了好久，今天整理一下我一知半解的，python多进程与多线程，毕竟每周还是得多少有点什么值得记录…
+首先理解：进程&amp;gt;线程（不知道可不可以这样讲），进程里至少有个线程，线程之间共享内存空间，有其他进程占用内存空间时，需要等待内存闲置。一篇文章：关于进程和线程区别的类比：http://www.ruanyifen">
   
     <link rel="alternative" href="/atom.xml" title="canying的博客" type="application/atom+xml">
   
@@ -139,16 +146,14 @@
             <canvas data-colors="#eaeaea" data-sectionHeight="100" data-contentId="js-content" id="myCanvas1" class="anm-canvas"></canvas>
           </div>
           <div id="js-content" class="content-ll">
-            
-  
-    <article id="post-pytho多进程与多线程" class="article article-type-post  article-index" itemscope itemprop="blogPost">
+            <article id="post-pytho多进程与多线程" class="article article-type-post " itemscope itemprop="blogPost">
   <div class="article-inner">
     
       <header class="article-header">
         
   
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/02/12/pytho多进程与多线程/">pytho多进程与多线程</a>
+    <h1 class="article-title" itemprop="name">
+      pytho多进程与多线程
     </h1>
   
 
@@ -180,102 +185,31 @@
       
 
       
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<i class="icon-book icon"></i>
-	<a class="article-category-link" href="/categories/tech/">tech</a>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/02/12/pytho多进程与多线程/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-python-Collection类" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2017/01/08/python-Collection类/">python Collection类</a>
-    </h1>
-  
-
-        <a href="/2017/01/08/python-Collection类/" class="archive-article-date">
-  	<time datetime="2017-01-08T05:18:20.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2017-01-08</time>
-</a>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <h3 id="python-collections-一直都躺在todolist里"><a href="#python-collections-一直都躺在todolist里" class="headerlink" title="python collections 一直都躺在todolist里"></a>python collections 一直都躺在todolist里</h3><p>  具体实现方法参考文档：<a href="https://docs.python.org/3/library/collections.html">https://docs.python.org/3/library/collections.html</a></p>
-<table>
-<thead>
-<tr>
-<th>container datetypes</th>
-<th style="text-align:center">abstract</th>
-<th style="text-align:right">Cool</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>deque</td>
-<td style="text-align:center">双端序列</td>
-<td style="text-align:right">有得必有失</td>
-</tr>
-<tr>
-<td>Counter</td>
-<td style="text-align:center">统计hashable objects</td>
-<td style="text-align:right">类似sql中的sum(A)…group by id</td>
-</tr>
-<tr>
-<td>OrderedDict</td>
-<td style="text-align:center">顺序存取的字典</td>
-<td style="text-align:right">None</td>
-</tr>
-<tr>
-<td>defaultdict</td>
-<td style="text-align:center">key不存在时，赋予value默认值</td>
-<td style="text-align:right">实时统计玩家参与某副本的次数</td>
-</tr>
-<tr>
-<td>namedtuple()</td>
-<td style="text-align:center">使tuple内的元素有自己的名称</td>
-<td style="text-align:right">坐标（x，y）</td>
-</tr>
-</tbody>
-</table>
-        
-          <a class="article-more-a" href="/2017/01/08/python-Collection类/#more">more >></a>
-        
-      
-
+        <div class="page-reward">
+          <a href="javascript:;" class="page-reward-btn tooltip-top">
+            <div class="tooltip tooltip-east">
+            <span class="tooltip-item">
+              赏
+            </span>
+            <span class="tooltip-content">
+              <span class="tooltip-text">
+                <span class="tooltip-inner">
+                  <p class="reward-p"><i class="icon icon-quo-left"></i>谢谢你请我吃糖果<i class="icon icon-quo-right"></i></p>
+                  <div class="reward-box">
+                    
+                    
+                    <div class="reward-box-item">
+                      <img class="reward-img" src="http://okqlmzer2.bkt.clouddn.com/822614165561486357.png">
+                      <span class="reward-type">微信</span>
+                    </div>
+                    
+                  </div>
+                </span>
+              </span>
+            </span>
+          </div>
+          </a>
+        </div>
       
     </div>
     <div class="article-info article-info-index">
@@ -294,138 +228,81 @@
 
 
       
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2017/01/08/python-Collection类/">展开全文 >></a>
-        </p>
-      
 
+      
+        
+<div class="share-btn share-icons tooltip-left">
+  <div class="tooltip tooltip-east">
+    <span class="tooltip-item">
+      <a href="javascript:;" class="share-sns share-outer">
+        <i class="icon icon-share"></i>
+      </a>
+    </span>
+    <span class="tooltip-content">
+      <div class="share-wrap">
+        <div class="share-icons">
+          <a class="weibo share-sns" href="javascript:;" data-type="weibo">
+            <i class="icon icon-weibo"></i>
+          </a>
+          <a class="weixin share-sns wxFab" href="javascript:;" data-type="weixin">
+            <i class="icon icon-weixin"></i>
+          </a>
+          <a class="qq share-sns" href="javascript:;" data-type="qq">
+            <i class="icon icon-qq"></i>
+          </a>
+          <a class="douban share-sns" href="javascript:;" data-type="douban">
+            <i class="icon icon-douban"></i>
+          </a>
+          <a class="qzone share-sns" href="javascript:;" data-type="qzone">
+            <i class="icon icon-qzone"></i>
+          </a>
+          <a class="facebook share-sns" href="javascript:;" data-type="facebook">
+            <i class="icon icon-facebook"></i>
+          </a>
+          <a class="twitter share-sns" href="javascript:;" data-type="twitter">
+            <i class="icon icon-twitter"></i>
+          </a>
+          <a class="google share-sns" href="javascript:;" data-type="google">
+            <i class="icon icon-google"></i>
+          </a>
+        </div>
+      </div>
+    </span>
+  </div>
+</div>
+
+<div class="page-modal wx-share js-wx-box">
+    <a class="close js-modal-close" href="javascript:;"><i class="icon icon-close"></i></a>
+    <p>扫一扫，分享到微信</p>
+    <div class="wx-qrcode">
+      <img src="http://s.jiathis.com/qrcode.php?url=http://blog.canying.org/2017/02/12/pytho多进程与多线程/" alt="微信分享二维码">
+    </div>
+</div>
+
+<div class="mask js-mask"></div>
       
       <div class="clearfix"></div>
     </div>
   </div>
 </article>
 
-
-
-
-
-
-
-
   
-    <article id="post-openpyxl操作excel文件 " class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/31/openpyxl操作excel文件 /">openpyxl操作excel文件</a>
-    </h1>
-  
-
-        <a href="/2016/12/31/openpyxl操作excel文件 /" class="archive-article-date">
-  	<time datetime="2016-12-31T02:46:29.000Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-12-31</time>
-</a>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>这个完全是为了熟悉hexo和markdown语法，上周末生日，来自一位朋友的工作需求</p>
-        
-          <a class="article-more-a" href="/2016/12/31/openpyxl操作excel文件 /#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-	<div class="article-tag tagcloud">
-		<i class="icon-price-tags"></i>
-		<ul class="article-tag-list"><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/excel/">excel</a></li><li class="article-tag-list-item"><a class="article-tag-list-link" href="/tags/python/">python</a></li></ul>
-	</div>
-
-      
-	<div class="article-category tagcloud">
-	<i class="icon-book icon"></i>
-	<a class="article-category-link" href="/categories/tech/">tech</a>
-	</div>
-
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/12/31/openpyxl操作excel文件 /">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
-  
-    <article id="post-hello-world" class="article article-type-post  article-index" itemscope itemprop="blogPost">
-  <div class="article-inner">
-    
-      <header class="article-header">
-        
-  
-    <h1 itemprop="name">
-      <a class="article-title" href="/2016/12/24/hello-world/">hello-world</a>
-    </h1>
-  
-
-        <a href="/2016/12/24/hello-world/" class="archive-article-date">
-  	<time datetime="2016-12-24T00:37:25.491Z" itemprop="datePublished"><i class="icon-calendar icon"></i>2016-12-24</time>
-</a>
-      </header>
-    
-    <div class="article-entry" itemprop="articleBody">
-      
-        <p>Welcome to <a href="https://hexo.io/">Hexo</a>! This is your very first post. Check <a href="https://hexo.io/docs/">documentation</a> for more info. If you get any problems when using Hexo, you can find the answer in <a href="https://hexo.io/docs/troubleshooting.html">troubleshooting</a> or you can ask me on <a href="https://github.com/hexojs/hexo/issues">GitHub</a>.<br>
-        
-          <a class="article-more-a" href="/2016/12/24/hello-world/#more">more >></a>
-        
-      
-
-      
-    </div>
-    <div class="article-info article-info-index">
-      
-      
-      
-
-      
-        <p class="article-more-link">
-          <a class="article-more-a" href="/2016/12/24/hello-world/">展开全文 >></a>
-        </p>
-      
-
-      
-      <div class="clearfix"></div>
-    </div>
-  </div>
-</article>
-
-
-
-
-
-
-
-
+<nav id="article-nav">
   
   
+    <a href="/2017/01/08/python-Collection类/" id="article-nav-older" class="article-nav-link-wrap">
+      <div class="article-nav-title">python Collection类</div>
+      <i class="icon-circle-right"></i>
+    </a>
+  
+</nav>
+
+
+
+
+
+
+
 
 
           </div>
@@ -447,8 +324,8 @@
     <script>
 	var yiliaConfig = {
 		mathjax: false,
-		isHome: true,
-		isPost: false,
+		isHome: false,
+		isPost: true,
 		isArchive: false,
 		isTag: false,
 		isCategory: false,
