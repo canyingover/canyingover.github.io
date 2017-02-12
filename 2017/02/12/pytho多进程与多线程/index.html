@@ -8,18 +8,18 @@
   <link rel="dns-prefetch" href="http://blog.canying.org">
   <title>pytho多进程与多线程 | canying的博客</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
-  <meta name="description" content="—五花马,千金裘,呼儿将出换美酒,与尔同销万古愁。
+  <meta name="description" content="——五花马,千金裘,呼儿将出换美酒,与尔同销万古愁。
 越来越觉得自己对这些东西一知半解…折腾了好久，今天整理一下我一知半解的 python多进程与多线程 毕竟每周还是应该多少有点什么值得记下来…">
 <meta property="og:type" content="article">
 <meta property="og:title" content="pytho多进程与多线程">
 <meta property="og:url" content="http://blog.canying.org/2017/02/12/pytho多进程与多线程/index.html">
 <meta property="og:site_name" content="canying的博客">
-<meta property="og:description" content="—五花马,千金裘,呼儿将出换美酒,与尔同销万古愁。
+<meta property="og:description" content="——五花马,千金裘,呼儿将出换美酒,与尔同销万古愁。
 越来越觉得自己对这些东西一知半解…折腾了好久，今天整理一下我一知半解的 python多进程与多线程 毕竟每周还是应该多少有点什么值得记下来…">
-<meta property="og:updated_time" content="2017-02-12T05:24:35.541Z">
+<meta property="og:updated_time" content="2017-02-12T05:26:13.979Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="pytho多进程与多线程">
-<meta name="twitter:description" content="—五花马,千金裘,呼儿将出换美酒,与尔同销万古愁。
+<meta name="twitter:description" content="——五花马,千金裘,呼儿将出换美酒,与尔同销万古愁。
 越来越觉得自己对这些东西一知半解…折腾了好久，今天整理一下我一知半解的 python多进程与多线程 毕竟每周还是应该多少有点什么值得记下来…">
   
     <link rel="alternative" href="/atom.xml" title="canying的博客" type="application/atom+xml">
@@ -159,7 +159,7 @@
     
     <div class="article-entry" itemprop="articleBody">
       
-        <p><em>—五花马,千金裘,呼儿将出换美酒,与尔同销万古愁。</em></p>
+        <p><em>——五花马,千金裘,呼儿将出换美酒,与尔同销万古愁。</em></p>
 <p>越来越觉得自己对这些东西一知半解…<br>折腾了好久，今天整理一下我一知半解的 <code>python多进程与多线程</code> 毕竟每周还是应该多少有点什么值得记下来…</p>
 <a id="more"></a> 
 <p>首先理解：进程&gt;线程（不知道可不可以这样讲），进程里至少有一个线程，线程之间共享内存空间，有其他进程占用内存空间时，需要等待内存闲置。<br>一篇文章：关于进程和线程区别的类比：<br><a href="http://www.ruanyifeng.com/blog/2013/04/processes_and_threads.html" target="_blank" rel="external">http://www.ruanyifeng.com/blog/2013/04/processes_and_threads.html</a></p>
@@ -178,7 +178,7 @@
 <figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> urllib2 </div><div class="line"><span class="keyword">from</span> multiprocessing.dummy <span class="keyword">import</span> Pool <span class="keyword">as</span> ThreadPool </div><div class="line"></div><div class="line">urls = [</div><div class="line">    <span class="string">'http://www.python.org'</span>, </div><div class="line">    <span class="string">'http://www.python.org/about/'</span>,</div><div class="line">    <span class="string">'http://www.onlamp.com/pub/a/python/2003/04/17/metaclasses.html'</span>,</div><div class="line">    <span class="string">'http://www.python.org/doc/'</span>,</div><div class="line">    <span class="string">'http://www.python.org/download/'</span>,</div><div class="line">    <span class="string">'http://www.python.org/getit/'</span>,</div><div class="line">    <span class="string">'http://www.python.org/community/'</span>,</div><div class="line">    <span class="string">'https://wiki.python.org/moin/'</span>,</div><div class="line">    <span class="string">'http://planet.python.org/'</span>,</div><div class="line">    <span class="string">'https://wiki.python.org/moin/LocalUserGroups'</span>,</div><div class="line">    <span class="string">'http://www.python.org/psf/'</span>,</div><div class="line">    <span class="string">'http://docs.python.org/devguide/'</span>,</div><div class="line">    <span class="string">'http://www.python.org/community/awards/'</span></div><div class="line">    <span class="comment"># etc.. </span></div><div class="line">    ]</div><div class="line"></div><div class="line"><span class="comment"># Make the Pool of workers</span></div><div class="line">pool = ThreadPool(<span class="number">4</span>) </div><div class="line"><span class="comment"># Open the urls in their own threads</span></div><div class="line"><span class="comment"># and return the results</span></div><div class="line">results = pool.map(urllib2.urlopen, urls)</div><div class="line"><span class="comment">#close the pool and wait for the work to finish </span></div><div class="line">pool.close() </div><div class="line">pool.join()</div></pre></td></tr></table></figure>
 <h3 id="总结几句："><a href="#总结几句：" class="headerlink" title="总结几句："></a>总结几句：</h3><p>1、IO 密集型任务选择<code>multiprocessing.dummy</code>，CPU 密集型任务选择<code>multiprocessing</code><br>2、关于IO 密集型和CPU 密集型：<br>所谓IO密集型任务，是指磁盘IO、网络IO占主要的任务，计算量很小。比如请求网页、读写文件等。<br>所谓计算密集型任务，是指CPU计算占主要的任务，CPU一直处于满负荷状态。比如在一个很大的列表中查找元素，复杂的加减乘除等。</p>
 <h3 id="文章参考："><a href="#文章参考：" class="headerlink" title="文章参考："></a>文章参考：</h3><p>1.<a href="https://segmentfault.com/a/1190000000414339" target="_blank" rel="external">一行 Python 实现并行化 – 日常多线程操作的新思路</a><br>2.<a href="https://gold.xitu.io/entry/58218787da2f60005d11f2b5" target="_blank" rel="external">python 中多进程以及多线程编程的总结</a></p>
-<p>—写的过程中还看到了进程之间的通信与同时操作一个文件的进程锁的相关内容，只能慢慢来咯…</p>
+<p>——写的过程中还看到了进程之间的通信与同时操作一个文件的进程锁的相关内容，只能慢慢来咯…</p>
 
       
 
