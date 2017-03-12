@@ -71,7 +71,7 @@
 <link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
 
 
-  <meta name="keywords" content="Hexo, NexT" />
+  <meta name="keywords" content="python," />
 
 
 
@@ -87,12 +87,16 @@
 
 
 
-<meta property="og:type" content="website">
-<meta property="og:title" content="canying的博客">
-<meta property="og:url" content="http://blog.canying.org/tags/随笔/index.html">
+<meta name="description" content="感觉挺有趣，不是很难，权当记录一下简单的实现方式，其他API实现可参考doc：">
+<meta property="og:type" content="article">
+<meta property="og:title" content="pyttsx 文本转语音">
+<meta property="og:url" content="http://blog.canying.org/2017/03/12/pyttsx-文本转语音/index.html">
 <meta property="og:site_name" content="canying的博客">
+<meta property="og:description" content="感觉挺有趣，不是很难，权当记录一下简单的实现方式，其他API实现可参考doc：">
+<meta property="og:updated_time" content="2017-03-12T10:59:27.234Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="canying的博客">
+<meta name="twitter:title" content="pyttsx 文本转语音">
+<meta name="twitter:description" content="感觉挺有趣，不是很难，权当记录一下简单的实现方式，其他API实现可参考doc：">
 
 
 
@@ -120,13 +124,13 @@
 
 
 
-  <link rel="canonical" href="http://blog.canying.org/tags/随笔/"/>
+  <link rel="canonical" href="http://blog.canying.org/2017/03/12/pyttsx-文本转语音/"/>
 
 
 
 
 
-  <title> 标签: 随笔 | canying的博客 </title>
+  <title> pyttsx 文本转语音 | canying的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -161,7 +165,7 @@
     
   
 
-  <div class="container one-collumn sidebar-position-right  ">
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
     <div class="headband"></div>
 
     <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
@@ -287,46 +291,204 @@
           <div id="content" class="content">
             
 
-  <div id="posts" class="posts-collapse">
-    <div class="collection-title">
-      <h2 >
-        随笔
-        <small>标签</small>
-      </h2>
-    </div>
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://blog.canying.org/2017/03/12/pyttsx-文本转语音/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="canying">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://okqlmzer2.bkt.clouddn.com/cb0813lol10s.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="canying的博客">
+    </span>
 
     
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                pyttsx 文本转语音
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-12T18:43:28+08:00">
+                2017-03-12
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2017-03-12T18:59:27+08:00">
+                2017-03-12
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/tech/" itemprop="url" rel="index">
+                    <span itemprop="name">tech</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/03/12/pyttsx-文本转语音/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/12/pyttsx-文本转语音/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
       
 
-  <article class="post post-type-normal" itemscope itemtype="http://schema.org/Article">
-    <header class="post-header">
+      
+        <p>感觉挺有趣，不是很难，权当记录一下简单的实现方式，其他API实现可参考<a href="http://pyttsx.readthedocs.io/en/latest/drivers.html" target="_blank" rel="external">doc</a>：</p>
+<a id="more"></a>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> pyttsx</div><div class="line"></div><div class="line">engine = pyttsx.init()</div><div class="line"><span class="comment"># set voice</span></div><div class="line">voices = engine.getProperty(<span class="string">'voices'</span>)</div><div class="line">engine.setProperty(<span class="string">'voice'</span>, voices[<span class="number">0</span>])</div><div class="line"><span class="comment"># set rate</span></div><div class="line">rate = engine.getProperty(<span class="string">'rate'</span>)</div><div class="line">engine.setProperty(<span class="string">'rate'</span>, rate+<span class="number">30</span>)</div><div class="line"></div><div class="line">text = <span class="string">u'中央电视台，中央电视台!'</span></div><div class="line">engine.say(text)</div><div class="line"></div><div class="line"><span class="comment"># save to mp3.file</span></div><div class="line">engine.speakToFile(text, <span class="string">r"./123.mp3"</span>)</div><div class="line">engine.runAndWait()</div></pre></td></tr></table></figure>
+<h3 id="设置输出到文件"><a href="#设置输出到文件" class="headerlink" title="设置输出到文件"></a>设置输出到文件</h3><ul>
+<li><code>pyttsx</code>的官方版本不支持在windows系统下输出到文件，通过下载<a href="https://github.com/wojiaohgl/pyttsx" target="_blank" rel="external">github</a>上的修改版本，在将其替代原来安装的版本,可以在<code>python shell</code>中,通过<code>import pyttsx</code>和<code>pyttsx</code>,找到<code>pyttsx</code>的位置。</li>
+<li>安装comtypes、 win32com,并修改pyttsx里的sapi5.py文件，将<code>comtypes</code>的导入语句修改为：<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> comtypes.client <span class="keyword">import</span> CreateObject</div><div class="line">engine = CreateObject(<span class="string">"SAPI.SpVoice"</span>)</div><div class="line">stream = CreateObject(<span class="string">"SAPI.SpFileStream"</span>)</div><div class="line"><span class="keyword">from</span> comtypes.gen <span class="keyword">import</span> SpeechLib</div></pre></td></tr></table></figure>
+</li>
+</ul>
+<h3 id="参考"><a href="#参考" class="headerlink" title="参考"></a>参考</h3><ul>
+<li><a href="http://blog.wojiaohgl.com/archives/267" target="_blank" rel="external">http://blog.wojiaohgl.com/archives/267</a></li>
+</ul>
 
-      <h1 class="post-title">
+      
+    </div>
+
+    <div>
+      
         
-            <a class="post-title-link" href="/2017/02/21/业务理解能力？/" itemprop="url">
-              
-                <span itemprop="name">业务理解能力？</span>
-              
-            </a>
+
+      
+    </div>
+
+    <div>
+      
         
-      </h1>
 
-      <div class="post-meta">
-        <time class="post-time" itemprop="dateCreated"
-              datetime="2017-02-21T17:05:44+08:00"
-              content="2017-02-21" >
-          02-21
-        </time>
-      </div>
+      
+    </div>
 
-    </header>
+
+    <footer class="post-footer">
+      
+        <div class="post-tags">
+          
+            <a href="/tags/python/" rel="tag"># python</a>
+          
+        </div>
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/03/04/词云制作/" rel="next" title="词云制作">
+                <i class="fa fa-chevron-left"></i> 词云制作
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
   </article>
 
 
-    
-  </div>
 
-  
+    <div class="post-spread">
+      
+    </div>
+  </div>
 
           
           </div>
@@ -334,6 +496,14 @@
 
 
           
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/03/12/pyttsx-文本转语音/"
+           data-title="pyttsx 文本转语音" data-url="http://blog.canying.org/2017/03/12/pyttsx-文本转语音/">
+      </div>
+    
+  </div>
+
 
         </div>
         
@@ -353,8 +523,17 @@
       
 
       
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
 
-      <section class="site-overview sidebar-panel sidebar-panel-active">
+      <section class="site-overview sidebar-panel">
         <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
           <img class="site-author-image" itemprop="image"
                src="http://okqlmzer2.bkt.clouddn.com/cb0813lol10s.jpg"
@@ -412,6 +591,22 @@
 
       </section>
 
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#设置输出到文件"><span class="nav-number">1.</span> <span class="nav-text">设置输出到文件</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#参考"><span class="nav-number">2.</span> <span class="nav-text">参考</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
       
 
       
@@ -526,6 +721,10 @@
 
 
   
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
 
   
 
