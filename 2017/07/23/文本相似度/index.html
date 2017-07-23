@@ -87,21 +87,34 @@
 
 
 
-<meta name="description" content="——十年热血写信仰，荣耀永不散场
-只有一个问题，统计如下测试素材图中有多少个连在一起的像素块。">
+<meta name="description" content="——小本本上八卦羞答答,人生太复杂
+研究什么####1.最长公共子串
+####2.最长公共子序列
+####3.最少编辑距离法
+####4.汉明距离
+####5.余弦相似度
+最长公共子串(The Longest Common Substring)这个blog简单整理一下用一个矩阵来记录两个字符串中所有位置的两个字符之间的匹配情况，若是匹配则为1,否则为0。然后求出对角线最长的1的序列，其对应的位置就">
 <meta property="og:type" content="article">
-<meta property="og:title" content="图像像素块统计（with OpenCV）">
-<meta property="og:url" content="http://blog.canying.org/2017/06/06/图像像素块统计（with openCV）/index.html">
+<meta property="og:title" content="文本相似度">
+<meta property="og:url" content="http://blog.canying.org/2017/07/23/文本相似度/index.html">
 <meta property="og:site_name" content="canying的博客">
-<meta property="og:description" content="——十年热血写信仰，荣耀永不散场
-只有一个问题，统计如下测试素材图中有多少个连在一起的像素块。">
-<meta property="og:image" content="http://okqlmzer2.bkt.clouddn.com/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20170606230724.png">
-<meta property="og:updated_time" content="2017-06-06T16:02:23.421Z">
+<meta property="og:description" content="——小本本上八卦羞答答,人生太复杂
+研究什么####1.最长公共子串
+####2.最长公共子序列
+####3.最少编辑距离法
+####4.汉明距离
+####5.余弦相似度
+最长公共子串(The Longest Common Substring)这个blog简单整理一下用一个矩阵来记录两个字符串中所有位置的两个字符之间的匹配情况，若是匹配则为1,否则为0。然后求出对角线最长的1的序列，其对应的位置就">
+<meta property="og:updated_time" content="2017-07-23T08:54:01.628Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="图像像素块统计（with OpenCV）">
-<meta name="twitter:description" content="——十年热血写信仰，荣耀永不散场
-只有一个问题，统计如下测试素材图中有多少个连在一起的像素块。">
-<meta name="twitter:image" content="http://okqlmzer2.bkt.clouddn.com/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20170606230724.png">
+<meta name="twitter:title" content="文本相似度">
+<meta name="twitter:description" content="——小本本上八卦羞答答,人生太复杂
+研究什么####1.最长公共子串
+####2.最长公共子序列
+####3.最少编辑距离法
+####4.汉明距离
+####5.余弦相似度
+最长公共子串(The Longest Common Substring)这个blog简单整理一下用一个矩阵来记录两个字符串中所有位置的两个字符之间的匹配情况，若是匹配则为1,否则为0。然后求出对角线最长的1的序列，其对应的位置就">
 
 
 
@@ -129,13 +142,13 @@
 
 
 
-  <link rel="canonical" href="http://blog.canying.org/2017/06/06/图像像素块统计（with openCV）/"/>
+  <link rel="canonical" href="http://blog.canying.org/2017/07/23/文本相似度/"/>
 
 
 
 
 
-  <title> 图像像素块统计（with OpenCV） | canying的博客 </title>
+  <title> 文本相似度 | canying的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -306,7 +319,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://blog.canying.org/2017/06/06/图像像素块统计（with openCV）/">
+    <link itemprop="mainEntityOfPage" href="http://blog.canying.org/2017/07/23/文本相似度/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="canying">
@@ -327,7 +340,7 @@
             
             
               
-                图像像素块统计（with OpenCV）
+                文本相似度
               
             
           </h1>
@@ -342,8 +355,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-06-06T22:54:09+08:00">
-                2017-06-06
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-07-23T15:23:19+08:00">
+                2017-07-23
               </time>
             
 
@@ -358,8 +371,8 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2017-06-07T00:02:23+08:00">
-                2017-06-07
+              <time title="更新于" itemprop="dateModified" datetime="2017-07-23T16:54:01+08:00">
+                2017-07-23
               </time>
             
           </span>
@@ -395,8 +408,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/06/06/图像像素块统计（with openCV）/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/06/06/图像像素块统计（with openCV）/" itemprop="commentCount"></span>
+                <a href="/2017/07/23/文本相似度/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/07/23/文本相似度/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -422,11 +435,28 @@
       
 
       
-        <p><em>——十年热血写信仰，荣耀永不散场</em></p>
-<p>只有一个问题，统计如下<code>测试素材</code>图中有多少个连在一起的像素块。<br><img src="http://okqlmzer2.bkt.clouddn.com/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20170606230724.png" alt="识别素材（test.png）"><br><a id="more"></a> </p>
-<h3 id="实现过程"><a href="#实现过程" class="headerlink" title="实现过程"></a>实现过程</h3><p>基本参考<a href="http://sixthresearcher.com/counting-blue-and-white-bacteria-colonies-with-python-and-opencv/" target="_blank" rel="external">这篇文章</a>简单修改，测试结果为13个像素块，原理不懂，看着看着才发现这个需求就是数细胞啊，当年还听老师讲过，我居然没有第一时间反应过来，Anyway，感谢google。</p>
-<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"></div><div class="line"><span class="comment"># -*- coding: utf-8 -*-</span></div><div class="line"></div><div class="line"><span class="keyword">import</span> numpy <span class="keyword">as</span> np</div><div class="line"><span class="keyword">import</span> imutils</div><div class="line"><span class="keyword">import</span> cv2</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">counter</span><span class="params">(filename)</span>:</span></div><div class="line">    counter = &#123;&#125;</div><div class="line"></div><div class="line">    image_orig = cv2.imread(filename)</div><div class="line">    height_orig, width_orig = image_orig.shape[:<span class="number">2</span>]</div><div class="line"></div><div class="line">    <span class="comment"># output image with contours</span></div><div class="line">    image_contours = image_orig.copy()</div><div class="line"></div><div class="line">    <span class="comment"># DETECTING BLUE AND WHITE COLONIES</span></div><div class="line">    colors = [<span class="string">'red'</span>]</div><div class="line">    <span class="keyword">for</span> color <span class="keyword">in</span> colors:</div><div class="line"></div><div class="line">        <span class="comment"># copy of original image</span></div><div class="line">        image_to_process = image_orig.copy()</div><div class="line"></div><div class="line">        <span class="comment"># initializes counter</span></div><div class="line">        counter[color] = <span class="number">0</span></div><div class="line"></div><div class="line">        <span class="comment"># define NumPy arrays of color boundaries (GBR vectors)</span></div><div class="line">        <span class="keyword">if</span> color == <span class="string">'red'</span>:</div><div class="line">            lower = np.array([ <span class="number">0</span>, <span class="number">0</span>, <span class="number">255</span>])</div><div class="line">            upper = np.array([ <span class="number">0</span>, <span class="number">0</span>, <span class="number">255</span>])</div><div class="line"></div><div class="line">        <span class="comment"># find the colors within the specified boundaries</span></div><div class="line">        image_mask = cv2.inRange(image_to_process, lower, upper)</div><div class="line">        <span class="comment"># apply the mask</span></div><div class="line">        image_res = cv2.bitwise_and(image_to_process, image_to_process, mask = image_mask)</div><div class="line"></div><div class="line">        <span class="comment">## load the image, convert it to grayscale, and blur it slightly</span></div><div class="line">        image_gray = cv2.cvtColor(image_res, cv2.COLOR_BGR2GRAY)</div><div class="line">        image_gray = cv2.GaussianBlur(image_gray, (<span class="number">5</span>, <span class="number">5</span>), <span class="number">0</span>)</div><div class="line"></div><div class="line">        <span class="comment"># perform edge detection, then perform a dilation + erosion to close gaps in between object edges</span></div><div class="line">        image_edged = cv2.Canny(image_gray, <span class="number">50</span>, <span class="number">100</span>)</div><div class="line">        image_edged = cv2.dilate(image_edged, <span class="keyword">None</span>, iterations=<span class="number">1</span>)</div><div class="line">        image_edged = cv2.erode(image_edged, <span class="keyword">None</span>, iterations=<span class="number">1</span>)</div><div class="line"></div><div class="line">        <span class="comment"># find contours in the edge map</span></div><div class="line">        cnts = cv2.findContours(image_edged.copy(), cv2.RETR_EXTERNAL, cv2.CHAIN_APPROX_SIMPLE)</div><div class="line">        cnts = cnts[<span class="number">0</span>] <span class="keyword">if</span> imutils.is_cv2() <span class="keyword">else</span> cnts[<span class="number">1</span>]</div><div class="line"></div><div class="line">        <span class="comment"># loop over the contours individually</span></div><div class="line">        <span class="keyword">for</span> c <span class="keyword">in</span> cnts:</div><div class="line">            <span class="comment"># if the contour is not sufficiently large, ignore it</span></div><div class="line">            <span class="keyword">if</span> cv2.contourArea(c) &lt; <span class="number">5</span>:</div><div class="line">                <span class="keyword">continue</span></div><div class="line">            <span class="comment"># compute the Convex Hull of the contour</span></div><div class="line">            hull = cv2.convexHull(c)</div><div class="line">            <span class="keyword">if</span> color == <span class="string">'red'</span>:</div><div class="line">                <span class="comment"># prints contours in red color</span></div><div class="line">                cv2.drawContours(image_contours,[hull],<span class="number">0</span>,(<span class="number">0</span>,<span class="number">0</span>,<span class="number">0</span>),<span class="number">1</span>)</div><div class="line"></div><div class="line">            counter[color] += <span class="number">1</span></div><div class="line">            <span class="comment">#cv2.putText(image_contours, "&#123;:.0f&#125;".format(cv2.contourArea(c)), (int(hull[0][0][0]), int(hull[0][0][1])), cv2.FONT_HERSHEY_SIMPLEX, 0.65, (255, 255, 255), 2)</span></div><div class="line"></div><div class="line">        <span class="comment"># Print the number of colonies of each color</span></div><div class="line">        <span class="keyword">return</span> counter[color]</div><div class="line">        <span class="comment">#print("&#123;&#125; &#123;&#125; colonies".format(counter[color],color))</span></div><div class="line"></div><div class="line">    <span class="comment"># Writes the output image</span></div><div class="line">    <span class="comment"># cv2.imwrite(args["output"],image_contours)</span></div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    <span class="keyword">print</span> counter(<span class="string">u'test.png'</span>)</div></pre></td></tr></table></figure>
-<h3 id="主要坑点"><a href="#主要坑点" class="headerlink" title="主要坑点"></a>主要坑点</h3><p>1、 没法直接安装<em>cv2</em>，通过<code>pip install opencv-python</code>安装<em>opencv</em>,后<code>import cv2</code>成功。<br>2、 这里最难的应该是设置合适的像素值，红色的RGB代码是（255，0，0），但是这里<code>lower = np.array([ 0, 0, 255])</code>,用的是GBR（叫你不认真看注释）</p>
+        <p><em>——小本本上八卦羞答答,人生太复杂</em></p>
+<h3 id="研究什么"><a href="#研究什么" class="headerlink" title="研究什么"></a>研究什么</h3><p>####1.最长公共子串</p>
+<p>####2.最长公共子序列</p>
+<p>####3.最少编辑距离法</p>
+<p>####4.汉明距离</p>
+<p>####5.余弦相似度</p>
+<h3 id="最长公共子串-The-Longest-Common-Substring"><a href="#最长公共子串-The-Longest-Common-Substring" class="headerlink" title="最长公共子串(The Longest Common Substring)"></a>最长公共子串(The Longest Common Substring)</h3><p><a href="http://blog.csdn.net/wateryouyo/article/details/50917812" target="_blank" rel="external">这个blog简单整理一下</a><br>用一个矩阵来记录两个字符串中所有位置的两个字符之间的匹配情况，若是匹配则为1,否则为0。然后求出对角线最长的1的序列，其对应的位置就是最长匹配子串的位置。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div></pre></td><td class="code"><pre><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">find_lcsubstr</span><span class="params">(s1, s2)</span>:</span>   </div><div class="line">    m=[[<span class="number">0</span> <span class="keyword">for</span> i <span class="keyword">in</span> range(len(s2)+<span class="number">1</span>)]  <span class="keyword">for</span> j <span class="keyword">in</span> range(len(s1)+<span class="number">1</span>)]  <span class="comment">#生成0矩阵，为方便后续计算，比字符串长度多了一列  </span></div><div class="line">    mmax=<span class="number">0</span>   <span class="comment">#最长匹配的长度  </span></div><div class="line">    p=<span class="number">0</span>  <span class="comment">#最长匹配对应在s1中的最后一位  </span></div><div class="line">    <span class="keyword">for</span> i <span class="keyword">in</span> range(len(s1)):  </div><div class="line">        <span class="keyword">for</span> j <span class="keyword">in</span> range(len(s2)):  </div><div class="line">            <span class="keyword">if</span> s1[i]==s2[j]:  </div><div class="line">                m[i+<span class="number">1</span>][j+<span class="number">1</span>]=m[i][j]+<span class="number">1</span>  </div><div class="line">                <span class="keyword">if</span> m[i+<span class="number">1</span>][j+<span class="number">1</span>]&gt;mmax:  </div><div class="line">                    mmax=m[i+<span class="number">1</span>][j+<span class="number">1</span>]  </div><div class="line">                    p=i+<span class="number">1</span>  </div><div class="line">    <span class="keyword">return</span> s1[p-mmax:p],mmax   <span class="comment">#返回最长子串及其长度</span></div></pre></td></tr></table></figure></p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">In [<span class="number">7</span>]: <span class="keyword">print</span> find_lcsubstr(<span class="string">'abcdfg'</span>,<span class="string">'abdfg'</span>)</div><div class="line">(<span class="string">'dfg'</span>, <span class="number">3</span>)</div></pre></td></tr></table></figure>
+<h3 id="最长公共子序列"><a href="#最长公共子序列" class="headerlink" title="最长公共子序列"></a>最长公共子序列</h3><p>同样是<a href="http://blog.csdn.net/wateryouyo/article/details/50917812" target="_blank" rel="external">这个blog简单整理一下</a><br>子串要求字符必须是连续的，但是子序列可以不连续，用动态规划的思想：<br>一个矩阵记录两个字符串中匹配情况，若是匹配则为左上方的值加1，否则为左方和上方的最大值。一个矩阵记录转移方向，然后根据转移方向，回溯找到最长子序列。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> numpy </div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">find_lcseque</span><span class="params">(s1, s2)</span>:</span>   </div><div class="line">     <span class="comment"># 生成字符串长度加1的0矩阵，m用来保存对应位置匹配的结果  </span></div><div class="line">    m = [ [ <span class="number">0</span> <span class="keyword">for</span> x <span class="keyword">in</span> range(len(s2)+<span class="number">1</span>) ] <span class="keyword">for</span> y <span class="keyword">in</span> range(len(s1)+<span class="number">1</span>) ]   </div><div class="line">    <span class="comment"># d用来记录转移方向  </span></div><div class="line">    d = [ [ <span class="keyword">None</span> <span class="keyword">for</span> x <span class="keyword">in</span> range(len(s2)+<span class="number">1</span>) ] <span class="keyword">for</span> y <span class="keyword">in</span> range(len(s1)+<span class="number">1</span>) ]   </div><div class="line">  </div><div class="line">    <span class="keyword">for</span> p1 <span class="keyword">in</span> range(len(s1)):   </div><div class="line">        <span class="keyword">for</span> p2 <span class="keyword">in</span> range(len(s2)):   </div><div class="line">            <span class="keyword">if</span> s1[p1] == s2[p2]:            <span class="comment">#字符匹配成功，则该位置的值为左上方的值加1  </span></div><div class="line">                m[p1+<span class="number">1</span>][p2+<span class="number">1</span>] = m[p1][p2]+<span class="number">1</span>  </div><div class="line">                d[p1+<span class="number">1</span>][p2+<span class="number">1</span>] = <span class="string">'ok'</span>            </div><div class="line">            <span class="keyword">elif</span> m[p1+<span class="number">1</span>][p2] &gt; m[p1][p2+<span class="number">1</span>]:  <span class="comment">#左值大于上值，则该位置的值为左值，并标记回溯时的方向  </span></div><div class="line">                m[p1+<span class="number">1</span>][p2+<span class="number">1</span>] = m[p1+<span class="number">1</span>][p2]   </div><div class="line">                d[p1+<span class="number">1</span>][p2+<span class="number">1</span>] = <span class="string">'left'</span>            </div><div class="line">            <span class="keyword">else</span>:                           <span class="comment">#上值大于左值，则该位置的值为上值，并标记方向up  </span></div><div class="line">                m[p1+<span class="number">1</span>][p2+<span class="number">1</span>] = m[p1][p2+<span class="number">1</span>]     </div><div class="line">                d[p1+<span class="number">1</span>][p2+<span class="number">1</span>] = <span class="string">'up'</span>           </div><div class="line">    (p1, p2) = (len(s1), len(s2))   </div><div class="line">    <span class="keyword">print</span> numpy.array(d)  </div><div class="line">    s = []   </div><div class="line">    <span class="keyword">while</span> m[p1][p2]:    <span class="comment">#不为None时  </span></div><div class="line">        c = d[p1][p2]  </div><div class="line">        <span class="keyword">if</span> c == <span class="string">'ok'</span>:   <span class="comment">#匹配成功，插入该字符，并向左上角找下一个  </span></div><div class="line">            s.append(s1[p1<span class="number">-1</span>])  </div><div class="line">            p1-=<span class="number">1</span>  </div><div class="line">            p2-=<span class="number">1</span>   </div><div class="line">        <span class="keyword">if</span> c ==<span class="string">'left'</span>:  <span class="comment">#根据标记，向左找下一个  </span></div><div class="line">            p2 -= <span class="number">1</span>  </div><div class="line">        <span class="keyword">if</span> c == <span class="string">'up'</span>:   <span class="comment">#根据标记，向上找下一个  </span></div><div class="line">            p1 -= <span class="number">1</span>  </div><div class="line">    s.reverse()   </div><div class="line">    <span class="keyword">return</span> <span class="string">''</span>.join(s)</div></pre></td></tr></table></figure>
+<h3 id="最少编辑距离"><a href="#最少编辑距离" class="headerlink" title="最少编辑距离"></a>最少编辑距离</h3><p>编辑距离，又称Levenshtein距离，是指两个字串之间，由一个转成另一个所需的最少编辑操作次数</p>
+<p>同样是动态规划问题<a href="http://www.cnblogs.com/ivanyb/archive/2011/11/25/2263356.html" target="_blank" rel="external">这个blog说的很清晰</a><br>实际应用中直接调用<a href="https://rawgit.com/ztane/python-Levenshtein/master/docs/Levenshtein.html" target="_blank" rel="external">python-Levenshtein</a>这个包实现，毕竟能不造轮子就不造轮子。模块通过<code>pip install python-Levenshtein==0.12.0</code> 进行安装。例如：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"></div><div class="line">In [<span class="number">3</span>]: Levenshtein.distance(<span class="string">'fadg'</span>,<span class="string">'fdag'</span>)</div><div class="line">Out[<span class="number">3</span>]: <span class="number">2</span></div><div class="line"></div><div class="line">In [<span class="number">4</span>]: Levenshtein.ratio(<span class="string">'fadg'</span>,<span class="string">'fdag'</span>)</div><div class="line">Out[<span class="number">4</span>]: <span class="number">0.75</span></div></pre></td></tr></table></figure>
+<h3 id="汉明距离"><a href="#汉明距离" class="headerlink" title="汉明距离"></a>汉明距离</h3><p>From WIKIPREDIA：The Hamming distance between two strings of equal length is the number of positions at which the corresponding symbols are different.和Levenshtein distance最大的区别是Hamming distance只算替换不算插入删除。同样能不造轮子就不造轮子，这个函数要求两个字符串长度要相等。<br><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">In [<span class="number">7</span>]: Levenshtein.hamming(<span class="string">'fadgsa'</span>,<span class="string">'fdadag'</span>)</div><div class="line">Out[<span class="number">7</span>]: <span class="number">5</span></div></pre></td></tr></table></figure></p>
+<h3 id="余弦相似度"><a href="#余弦相似度" class="headerlink" title="余弦相似度"></a>余弦相似度</h3><p>基本公式：<br><a href="http://okqlmzer2.bkt.clouddn.com/b3cad9985752850c108eb998aaabd318_b.jpg" target="_blank" rel="external">余弦相似度</a></p>
+<p>拓展：修正余弦相似度与pearson相关系数</p>
+<p><a href="http://okqlmzer2.bkt.clouddn.com/s.jpg" target="_blank" rel="external"></a></p>
+<ul>
+<li>修正cosine考虑的是对item i打过分的每个user u，其打分的均值</li>
+<li>Pearson考虑的是每个item i 的被打分的均值</li>
+</ul>
+<p>写到这里，有一篇<a href="http://www.jianshu.com/p/edf666d3995f" target="_blank" rel="external">关于词袋模型、TF-IDF模型和LSI模型</a>的blog值得看一下。就到这里吧！</p>
 
       
     </div>
@@ -463,8 +493,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/03/12/pyttsx-文本转语音/" rel="next" title="pyttsx 文本转语音">
-                <i class="fa fa-chevron-left"></i> pyttsx 文本转语音
+              <a href="/2017/06/06/图像像素块统计（with openCV）/" rel="next" title="图像像素块统计（with OpenCV）">
+                <i class="fa fa-chevron-left"></i> 图像像素块统计（with OpenCV）
               </a>
             
           </div>
@@ -472,10 +502,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/07/23/文本相似度/" rel="prev" title="文本相似度">
-                文本相似度 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -501,8 +527,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/06/06/图像像素块统计（with openCV）/"
-           data-title="图像像素块统计（with OpenCV）" data-url="http://blog.canying.org/2017/06/06/图像像素块统计（with openCV）/">
+      <div class="ds-thread" data-thread-key="2017/07/23/文本相似度/"
+           data-title="文本相似度" data-url="http://blog.canying.org/2017/07/23/文本相似度/">
       </div>
     
   </div>
@@ -604,7 +630,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#实现过程"><span class="nav-number">1.</span> <span class="nav-text">实现过程</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#主要坑点"><span class="nav-number">2.</span> <span class="nav-text">主要坑点</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-3"><a class="nav-link" href="#研究什么"><span class="nav-number">1.</span> <span class="nav-text">研究什么</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#最长公共子串-The-Longest-Common-Substring"><span class="nav-number">2.</span> <span class="nav-text">最长公共子串(The Longest Common Substring)</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#最长公共子序列"><span class="nav-number">3.</span> <span class="nav-text">最长公共子序列</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#最少编辑距离"><span class="nav-number">4.</span> <span class="nav-text">最少编辑距离</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#汉明距离"><span class="nav-number">5.</span> <span class="nav-text">汉明距离</span></a></li><li class="nav-item nav-level-3"><a class="nav-link" href="#余弦相似度"><span class="nav-number">6.</span> <span class="nav-text">余弦相似度</span></a></li></ol></div>
             
 
           </div>
