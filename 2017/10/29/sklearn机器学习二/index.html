@@ -1,0 +1,941 @@
+<!doctype html>
+
+
+
+  
+
+
+<html class="theme-next pisces use-motion" lang="zh-Hans">
+<head>
+  <meta charset="UTF-8"/>
+<meta http-equiv="X-UA-Compatible" content="IE=edge" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1"/>
+
+
+
+<meta http-equiv="Cache-Control" content="no-transform" />
+<meta http-equiv="Cache-Control" content="no-siteapp" />
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <link href="/lib/fancybox/source/jquery.fancybox.css?v=2.1.5" rel="stylesheet" type="text/css" />
+
+
+
+
+  
+  
+  
+  
+
+  
+    
+    
+  
+
+  
+
+  
+
+  
+
+  
+
+  
+    
+    
+    <link href="//fonts.googleapis.com/css?family=Lato:300,300italic,400,400italic,700,700italic&subset=latin,latin-ext" rel="stylesheet" type="text/css">
+  
+
+
+
+
+
+
+<link href="/lib/font-awesome/css/font-awesome.min.css?v=4.6.2" rel="stylesheet" type="text/css" />
+
+<link href="/css/main.css?v=5.1.0" rel="stylesheet" type="text/css" />
+
+
+  <meta name="keywords" content="Hexo, NexT" />
+
+
+
+
+
+
+
+
+  <link rel="shortcut icon" type="image/x-icon" href="/favicon.ico?v=5.1.0" />
+
+
+
+
+
+
+<meta name="description" content="——子规夜半犹啼血，不信东风唤不回。
+特征工程
+数值型：可直接使用，也可以进行归一化、标准化提高模型的性能sklearn.preprocessing.MinMaxScaler()
+有序型：转换成数值，A–1，B–2，C–3
+类别型：独热编码sklearn.preprocessing.OneHotEncoder()">
+<meta property="og:type" content="article">
+<meta property="og:title" content="sklearn机器学习二">
+<meta property="og:url" content="http://blog.canying.org/2017/10/29/sklearn机器学习二/index.html">
+<meta property="og:site_name" content="canying的博客">
+<meta property="og:description" content="——子规夜半犹啼血，不信东风唤不回。
+特征工程
+数值型：可直接使用，也可以进行归一化、标准化提高模型的性能sklearn.preprocessing.MinMaxScaler()
+有序型：转换成数值，A–1，B–2，C–3
+类别型：独热编码sklearn.preprocessing.OneHotEncoder()">
+<meta property="og:updated_time" content="2017-10-29T12:44:30.820Z">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:title" content="sklearn机器学习二">
+<meta name="twitter:description" content="——子规夜半犹啼血，不信东风唤不回。
+特征工程
+数值型：可直接使用，也可以进行归一化、标准化提高模型的性能sklearn.preprocessing.MinMaxScaler()
+有序型：转换成数值，A–1，B–2，C–3
+类别型：独热编码sklearn.preprocessing.OneHotEncoder()">
+
+
+
+<script type="text/javascript" id="hexo.configurations">
+  var NexT = window.NexT || {};
+  var CONFIG = {
+    root: '/',
+    scheme: 'Pisces',
+    sidebar: {"position":"right","Sidebar Display, available value":null,"display":"hide","offset":12,"offset_float":0,"b2t":true,"scrollpercent":true},
+    fancybox: true,
+    motion: true,
+    duoshuo: {
+      userId: '0',
+      author: '博主'
+    },
+    algolia: {
+      applicationID: '',
+      apiKey: '',
+      indexName: '',
+      hits: {"per_page":10},
+      labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
+    }
+  };
+</script>
+
+
+
+  <link rel="canonical" href="http://blog.canying.org/2017/10/29/sklearn机器学习二/"/>
+
+
+
+
+
+  <title> sklearn机器学习二 | canying的博客 </title>
+</head>
+
+<body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
+
+  
+
+
+
+
+
+  <script type="text/javascript">
+    var _hmt = _hmt || [];
+    (function() {
+      var hm = document.createElement("script");
+      hm.src = "https://hm.baidu.com/hm.js?de3402e1d3da1cc5da589f89e860dde3";
+      var s = document.getElementsByTagName("script")[0];
+      s.parentNode.insertBefore(hm, s);
+    })();
+  </script>
+
+
+
+
+
+
+
+
+
+
+  
+  
+    
+  
+
+  <div class="container one-collumn sidebar-position-right page-post-detail ">
+    <div class="headband"></div>
+
+    <header id="header" class="header" itemscope itemtype="http://schema.org/WPHeader">
+      <div class="header-inner"><div class="site-brand-wrapper">
+  <div class="site-meta ">
+    
+
+    <div class="custom-logo-site-title">
+      <a href="/"  class="brand" rel="start">
+        <span class="logo-line-before"><i></i></span>
+        <span class="site-title">canying的博客</span>
+        <span class="logo-line-after"><i></i></span>
+      </a>
+    </div>
+      
+        <p class="site-subtitle">初到贵境 请多指教</p>
+      
+  </div>
+
+  <div class="site-nav-toggle">
+    <button>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+      <span class="btn-bar"></span>
+    </button>
+  </div>
+</div>
+
+<nav class="site-nav">
+  
+
+  
+    <ul id="menu" class="menu">
+      
+        
+        <li class="menu-item menu-item-home">
+          <a href="/" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-home"></i> <br />
+            
+            首页
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-categories">
+          <a href="/categories" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-th"></i> <br />
+            
+            分类
+          </a>
+        </li>
+      
+        
+        <li class="menu-item menu-item-archives">
+          <a href="/archives" rel="section">
+            
+              <i class="menu-item-icon fa fa-fw fa-archive"></i> <br />
+            
+            归档
+          </a>
+        </li>
+      
+
+      
+        <li class="menu-item menu-item-search">
+          
+            <a href="javascript:;" class="popup-trigger">
+          
+            
+              <i class="menu-item-icon fa fa-search fa-fw"></i> <br />
+            
+            搜索
+          </a>
+        </li>
+      
+    </ul>
+  
+
+  
+    <div class="site-search">
+      
+  <div class="popup local-search-popup">
+  <div class="local-search-header clearfix">
+    <span class="search-icon">
+      <i class="fa fa-search"></i>
+    </span>
+    <span class="popup-btn-close">
+      <i class="fa fa-times-circle"></i>
+    </span>
+    <div class="local-search-input-wrapper">
+      <input autocapitalize="off" autocomplete="off" autocorrect="off" placeholder="搜索..." spellcheck="false" type="text" id="local-search-input">
+    </div>
+  </div>
+  <div id="local-search-result"></div>
+</div>
+
+
+
+    </div>
+  
+</nav>
+
+
+
+ </div>
+    </header>
+
+    <main id="main" class="main">
+      <div class="main-inner">
+        <div class="content-wrap">
+          <div id="content" class="content">
+            
+
+  <div id="posts" class="posts-expand">
+    
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://blog.canying.org/2017/10/29/sklearn机器学习二/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="canying">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://okqlmzer2.bkt.clouddn.com/cb0813lol10s.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="canying的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                sklearn机器学习二
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-29T16:36:17+08:00">
+                2017-10-29
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2017-10-29T20:44:30+08:00">
+                2017-10-29
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index">
+                    <span itemprop="name">Machine Learning</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2017/10/29/sklearn机器学习二/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/10/29/sklearn机器学习二/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        <p><em>——子规夜半犹啼血，不信东风唤不回。</em></p>
+<h4 id="特征工程"><a href="#特征工程" class="headerlink" title="特征工程"></a>特征工程</h4><ul>
+<li>数值型：可直接使用，也可以进行归一化、标准化提高模型的性能<code>sklearn.preprocessing.MinMaxScaler()</code></li>
+<li>有序型：转换成数值，A–1，B–2，C–3</li>
+<li>类别型：独热编码<code>sklearn.preprocessing.OneHotEncoder()</code></li>
+</ul>
+<a id="more"></a>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 随机生成有序型特征和类别特征作为例子</span></div><div class="line">X_train = np.array([[<span class="string">'male'</span>, <span class="string">'low'</span>],</div><div class="line">                  [<span class="string">'female'</span>, <span class="string">'low'</span>],</div><div class="line">                  [<span class="string">'female'</span>, <span class="string">'middle'</span>],</div><div class="line">                  [<span class="string">'male'</span>, <span class="string">'low'</span>],</div><div class="line">                  [<span class="string">'female'</span>, <span class="string">'high'</span>],</div><div class="line">                  [<span class="string">'male'</span>, <span class="string">'low'</span>],</div><div class="line">                  [<span class="string">'female'</span>, <span class="string">'low'</span>],</div><div class="line">                  [<span class="string">'female'</span>, <span class="string">'high'</span>],</div><div class="line">                  [<span class="string">'male'</span>, <span class="string">'low'</span>],</div><div class="line">                  [<span class="string">'male'</span>, <span class="string">'high'</span>]])</div><div class="line"></div><div class="line">X_test = np.array([[<span class="string">'male'</span>, <span class="string">'low'</span>],</div><div class="line">                  [<span class="string">'male'</span>, <span class="string">'low'</span>],</div><div class="line">                  [<span class="string">'female'</span>, <span class="string">'middle'</span>],</div><div class="line">                  [<span class="string">'female'</span>, <span class="string">'low'</span>],</div><div class="line">                  [<span class="string">'female'</span>, <span class="string">'high'</span>]])</div><div class="line"><span class="keyword">from</span> sklearn.preprocessing <span class="keyword">import</span> LabelEncoder, OneHotEncoder</div><div class="line"></div><div class="line"><span class="comment"># 在训练集上进行编码操作</span></div><div class="line">label_enc1 = LabelEncoder() <span class="comment"># 首先将male, female用数字编码</span></div><div class="line">one_hot_enc = OneHotEncoder() <span class="comment"># 将数字编码转换为独热编码</span></div><div class="line"></div><div class="line">label_enc2 = LabelEncoder() <span class="comment"># 将low, middle, high用数字编码</span></div><div class="line"></div><div class="line">tr_feat1_tmp = label_enc1.fit_transform(X_train[:, <span class="number">0</span>]).reshape(<span class="number">-1</span>, <span class="number">1</span>) <span class="comment"># reshape(-1, 1)保证为一维列向量</span></div><div class="line">tr_feat1 = one_hot_enc.fit_transform(tr_feat1_tmp) </div><div class="line">tr_feat1 = tr_feat1.todense()</div><div class="line"></div><div class="line">tr_feat2 = label_enc2.fit_transform(X_train[:, <span class="number">1</span>]).reshape(<span class="number">-1</span>, <span class="number">1</span>)</div><div class="line"></div><div class="line">X_train_enc = np.hstack((tr_feat1, tr_feat2))</div><div class="line">print(X_train_enc)</div></pre></td></tr></table></figure>
+<h4 id="交叉验证"><a href="#交叉验证" class="headerlink" title="交叉验证"></a>交叉验证</h4><p>模型的参数有两种，<code>自身参数</code>样本学习得到，模型自动更新，如逻辑回归、神经网络中的权重及偏置的学习；<code>超参数</code>手动设置的参数，如kmeans的k，神经网络中的网络层数及每层的节点个数。交叉验证就是帮助快速找到合适的超参。k-fold cross-validation,将数据分成k份，不放回每次取其中一份为测试集，其他为训练集，每次模拟得到一个准确值，然后取k次的平均值评估模型，一般会做多次k-fold cross-validation。</p>
+<ul>
+<li>交叉验证：<code>sklearn.model_selection.cross_val_score()</code></li>
+<li>网格搜索：<code>sklearn.model_selection.GridSearchCV()</code></li>
+</ul>
+<h5 id="单一参数"><a href="#单一参数" class="headerlink" title="单一参数"></a>单一参数</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> sklearn.neighbors <span class="keyword">import</span> KNeighborsClassifier</div><div class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> cross_val_score</div><div class="line"></div><div class="line">k_range = [<span class="number">5</span>, <span class="number">10</span>, <span class="number">15</span>, <span class="number">20</span>]</div><div class="line">cv_scores = []</div><div class="line"><span class="keyword">for</span> k <span class="keyword">in</span> k_range:</div><div class="line">    knn = KNeighborsClassifier(n_neighbors=k)</div><div class="line">    scores = cross_val_score(knn, X, y, cv=<span class="number">3</span>) <span class="comment">#X,y应该为全部数据，不是被split的，cv=3表示3fold</span></div><div class="line">    cv_score = np.mean(scores)</div><div class="line">    print(<span class="string">'k=&#123;&#125;，验证集上的准确率=&#123;:.3f&#125;'</span>.format(k, cv_score))</div><div class="line">    cv_scores.append(cv_score)</div><div class="line">best_k = k_range[np.argmax(cv_scores)]</div><div class="line">best_knn = KNeighborsClassifier(n_neighbors=best_k)</div><div class="line">best_knn.fit(X_train_scaled, y_train)</div><div class="line">print(<span class="string">'测试集准确率：'</span>, best_knn.score(X_test_scaled, y_test))</div></pre></td></tr></table></figure>
+<h5 id="多个参数"><a href="#多个参数" class="headerlink" title="多个参数"></a>多个参数</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> sklearn.model_selection <span class="keyword">import</span> GridSearchCV</div><div class="line"><span class="keyword">from</span> sklearn.tree <span class="keyword">import</span> DecisionTreeClassifier</div><div class="line"></div><div class="line">parameters = &#123;<span class="string">'max_depth'</span>:[<span class="number">3</span>, <span class="number">5</span>, <span class="number">7</span>, <span class="number">9</span>], <span class="string">'min_samples_leaf'</span>: [<span class="number">1</span>, <span class="number">2</span>, <span class="number">3</span>, <span class="number">4</span>]&#125;</div><div class="line">clf = GridSearchCV(DecisionTreeClassifier(), parameters, cv=<span class="number">3</span>, scoring=<span class="string">'accuracy'</span>)</div><div class="line">clf.fit(X, y)</div><div class="line">print(<span class="string">'最优参数：'</span>, clf.best_params_)</div><div class="line">print(<span class="string">'验证集最高得分：'</span>, clf.best_score_)</div><div class="line">best_model = clf.best_estimator_</div><div class="line">print(<span class="string">'测试集上准确率：'</span>, best_model.score(X_test, y_test))</div></pre></td></tr></table></figure>
+<h4 id="评价指标"><a href="#评价指标" class="headerlink" title="评价指标"></a>评价指标</h4><table><br>    <tr><br>        <td></td><td></td><td colspan="2" align="center">Prediction</td><br>    </tr><br>    <tr><br>        <td></td><td></td><td align="center">Positive</td><td align="center">Negative</td><br>    </tr><br>    <tr><br>        <td rowspan="2" align="center">Ground Truth</td><td align="center">Positive</td><td align="center">TP</td><td align="center">FN</td><br>    </tr><br>    <tr><br>        <td align="center">Negative</td><td align="center">FP</td><td align="center">TN</td><br>    </tr><br></table>
+
+<p>TRP(Recakk,召回率)：TP/(TP+TN)<br>Precision(精确率)：TP/(TP+FP)<br>FPR：FP/(TN+FP)<br>!()[<a href="http://okqlmzer2.bkt.clouddn.com/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20171029184051.png" target="_blank" rel="external">http://okqlmzer2.bkt.clouddn.com/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20171029184051.png</a>]</p>
+<p>sklearn.metrics包含常用的评价指标：accuracy_score、precision_score、recall_score、f1_score</p>
+<h5 id="PR曲线（Precision-Recall-Curve）"><a href="#PR曲线（Precision-Recall-Curve）" class="headerlink" title="PR曲线（Precision-Recall Curve）"></a>PR曲线（Precision-Recall Curve）</h5><p>最理想的点是右上角，precision=1.0,recall=1.0,AUC的值就是曲线下的面积<br><code>sklearn.metrics.precision_recall_curve()</code><br>!()[<a href="http://okqlmzer2.bkt.clouddn.com/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20171029193422PR.png" target="_blank" rel="external">http://okqlmzer2.bkt.clouddn.com/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20171029193422PR.png</a>]</p>
+<h5 id="ROC曲线（Receiver-Operating-Chaaracteristic-Curve）"><a href="#ROC曲线（Receiver-Operating-Chaaracteristic-Curve）" class="headerlink" title="ROC曲线（Receiver Operating Chaaracteristic Curve）"></a>ROC曲线（Receiver Operating Chaaracteristic Curve）</h5><p>最理想的点是左上角，FPR=0.0，TPR=1.0<br><code>sklearn.metrics.roc_curve()</code><br>!()[<a href="http://okqlmzer2.bkt.clouddn.com/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20171029193440ROC.png" target="_blank" rel="external">http://okqlmzer2.bkt.clouddn.com/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20171029193440ROC.png</a>]</p>
+<h5 id="混淆矩阵（confusion-matrix）"><a href="#混淆矩阵（confusion-matrix）" class="headerlink" title="混淆矩阵（confusion matrix）"></a>混淆矩阵（confusion matrix）</h5><p>用于多分类模型的评价，给出的是每一类预测的准确情况<br><code>sklearn.metrics.confusion_matrix()</code><br>!()[<a href="http://okqlmzer2.bkt.clouddn.com/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20171029193502CM.png" target="_blank" rel="external">http://okqlmzer2.bkt.clouddn.com/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20171029193502CM.png</a>]</p>
+<p>上述主要为分类和预测的评价指标，回归模型中常用的指标有</p>
+<ul>
+<li>sklearn.metrics.r2_score()</li>
+<li>sklearn.metrics.mean_absolute_error()</li>
+<li>sklearn.metrics.mean_squared_error()</li>
+<li>sklearn.metrics.median_absolute_error()<br>更多：()[<a href="http://scikit-learn.org/stable/modules/model_evaluation.html" target="_blank" rel="external">http://scikit-learn.org/stable/modules/model_evaluation.html</a>]</li>
+</ul>
+<h4 id="朴素贝叶斯"><a href="#朴素贝叶斯" class="headerlink" title="朴素贝叶斯"></a>朴素贝叶斯</h4><p>是构建分类器的简单方法，不是训练分类器的单一算法，是一系列基于相同原理的算法，前提条件是<em>需要假定每个特征与其他特征不相关</em>。效率高，可用于高维数据，通常作为模型比较的baseline，但分类想过不一定好，没有超参。<br><code>sklearn.naive_bayes</code></p>
+<p>sklearn中的三种朴素贝叶斯算法：</p>
+<ul>
+<li>Bernoulli：二元特征，如一个特征有没有出现</li>
+<li>Multinomial：离散型特征，如单词出现次数</li>
+<li>Gaussian：连续型特征</li>
+</ul>
+<h4 id="随机森林"><a href="#随机森林" class="headerlink" title="随机森林"></a>随机森林</h4><p>多个学习器的集成学习（Ensenle Learning），不需要过多的特征归一化和标准化</p>
+<ul>
+<li>Bagging:个体学习器不存在依赖关系，如随机森林</li>
+<li>boosting:个体学习器存在依赖关系，GBDT<br>随机包括两部分：随机采样和随机特征，通常选取特征数为k=log2d,d为总特征数。<br><em>解释</em>Bagging，基于自助采样法（bootsrap sampling）:有放回采样，样本在m次采样中不被采到的概率是(1-1/m)^m,取极限=1/e，约为0.368。<br><code>sklearn.ensemble.RandomForestClassifier</code><br>重要参数：</li>
+<li>n_estimators:包含决策树的个数</li>
+<li>max_features:默认即可，可调整</li>
+<li>max_depth:每棵决策树的深度</li>
+</ul>
+<h4 id="GBDT-Gradient-Boosted-ing-Descision-Tree"><a href="#GBDT-Gradient-Boosted-ing-Descision-Tree" class="headerlink" title="GBDT(Gradient Boosted(-ing) Descision Tree)"></a>GBDT(Gradient Boosted(-ing) Descision Tree)</h4><p>传统boosting关注的是先前基学习器做错的训练样本，然后基于调整后的样本分布来训练下一个基学习器，直到基学习器的数目达到预设的T值，最终将这个T个基学习器进行加权结合；而Gradient Boost是框架，可以嵌入不同的模型，迭代的方式是为了减少上一次的残差，在减少残差的梯度方向上建立新的模型，也就是每次建立的新树是前面所有树的结论和残差。不适合文本和高维数据。<br><code>sklearn.ensemble.GradientBoostingClassifier</code><br>重要参数：</p>
+<ul>
+<li>n_estimators:包含决策树的个数</li>
+<li>learning_rate:学习率，控制从上一次迭代中纠错的强度</li>
+<li>max_depth:大多数应用中设置为3-5</li>
+</ul>
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+    <div>
+      
+        
+
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+        
+      
+
+      
+        <div class="post-nav">
+          <div class="post-nav-next post-nav-item">
+            
+              <a href="/2017/10/22/sklearn机器学习一/" rel="next" title="sklearn机器学习一">
+                <i class="fa fa-chevron-left"></i> sklearn机器学习一
+              </a>
+            
+          </div>
+
+          <span class="post-nav-divider"></span>
+
+          <div class="post-nav-prev post-nav-item">
+            
+          </div>
+        </div>
+      
+
+      
+      
+    </footer>
+  </article>
+
+
+
+    <div class="post-spread">
+      
+    </div>
+  </div>
+
+          
+          </div>
+          
+
+
+          
+  <div class="comments" id="comments">
+    
+      <div class="ds-thread" data-thread-key="2017/10/29/sklearn机器学习二/"
+           data-title="sklearn机器学习二" data-url="http://blog.canying.org/2017/10/29/sklearn机器学习二/">
+      </div>
+    
+  </div>
+
+
+        </div>
+        
+          
+  
+  <div class="sidebar-toggle">
+    <div class="sidebar-toggle-line-wrap">
+      <span class="sidebar-toggle-line sidebar-toggle-line-first"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-middle"></span>
+      <span class="sidebar-toggle-line sidebar-toggle-line-last"></span>
+    </div>
+  </div>
+
+  <aside id="sidebar" class="sidebar">
+    <div class="sidebar-inner">
+
+      
+
+      
+        <ul class="sidebar-nav motion-element">
+          <li class="sidebar-nav-toc sidebar-nav-active" data-target="post-toc-wrap" >
+            文章目录
+          </li>
+          <li class="sidebar-nav-overview" data-target="site-overview">
+            站点概览
+          </li>
+        </ul>
+      
+
+      <section class="site-overview sidebar-panel">
+        <div class="site-author motion-element" itemprop="author" itemscope itemtype="http://schema.org/Person">
+          <img class="site-author-image" itemprop="image"
+               src="http://okqlmzer2.bkt.clouddn.com/cb0813lol10s.jpg"
+               alt="canying" />
+          <p class="site-author-name" itemprop="name">canying</p>
+           
+              <p class="site-description motion-element" itemprop="description"></p>
+          
+        </div>
+        <nav class="site-state motion-element">
+        
+          
+            <div class="site-state-item site-state-posts">
+              <a href="/archives">
+                <span class="site-state-item-count">12</span>
+                <span class="site-state-item-name">日志</span>
+              </a>
+            </div>
+          
+
+          
+            <div class="site-state-item site-state-categories">
+              <a href="/categories">
+                <span class="site-state-item-count">4</span>
+                <span class="site-state-item-name">分类</span>
+              </a>
+            </div>
+          
+
+          
+
+        </nav>
+
+        
+
+        <div class="links-of-author motion-element">
+          
+        </div>
+
+        
+        
+
+        
+        
+
+        
+
+
+      </section>
+
+      
+      <!--noindex-->
+        <section class="post-toc-wrap motion-element sidebar-panel sidebar-panel-active">
+          <div class="post-toc">
+
+            
+              
+            
+
+            
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#特征工程"><span class="nav-number">1.</span> <span class="nav-text">特征工程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#交叉验证"><span class="nav-number">2.</span> <span class="nav-text">交叉验证</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#单一参数"><span class="nav-number">2.1.</span> <span class="nav-text">单一参数</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#多个参数"><span class="nav-number">2.2.</span> <span class="nav-text">多个参数</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#评价指标"><span class="nav-number">3.</span> <span class="nav-text">评价指标</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#PR曲线（Precision-Recall-Curve）"><span class="nav-number">3.1.</span> <span class="nav-text">PR曲线（Precision-Recall Curve）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#ROC曲线（Receiver-Operating-Chaaracteristic-Curve）"><span class="nav-number">3.2.</span> <span class="nav-text">ROC曲线（Receiver Operating Chaaracteristic Curve）</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#混淆矩阵（confusion-matrix）"><span class="nav-number">3.3.</span> <span class="nav-text">混淆矩阵（confusion matrix）</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#朴素贝叶斯"><span class="nav-number">4.</span> <span class="nav-text">朴素贝叶斯</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#随机森林"><span class="nav-number">5.</span> <span class="nav-text">随机森林</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#GBDT-Gradient-Boosted-ing-Descision-Tree"><span class="nav-number">6.</span> <span class="nav-text">GBDT(Gradient Boosted(-ing) Descision Tree)</span></a></li></ol></div>
+            
+
+          </div>
+        </section>
+      <!--/noindex-->
+      
+
+      
+        <div class="back-to-top">
+          <i class="fa fa-arrow-up"></i>
+          
+            <span id="scrollpercent"><span>0</span>%</span>
+          
+        </div>
+      
+
+    </div>
+  </aside>
+
+
+        
+      </div>
+    </main>
+
+    <footer id="footer" class="footer">
+      <div class="footer-inner">
+        <div class="copyright" >
+  
+  &copy; 
+  <span itemprop="copyrightYear">2017</span>
+  <span class="with-love">
+    <i class="fa fa-heart"></i>
+  </span>
+  <span class="author" itemprop="copyrightHolder">canying</span>
+</div>
+
+
+<div class="powered-by">
+  由 <a class="theme-link" href="https://hexo.io">Hexo</a> 强力驱动
+</div>
+
+<div class="theme-info">
+  主题 -
+  <a class="theme-link" href="https://github.com/iissnan/hexo-theme-next">
+    NexT.Pisces
+  </a>
+</div>
+
+
+        
+
+        
+      </div>
+    </footer>
+
+    
+    
+  </div>
+
+  
+
+<script type="text/javascript">
+  if (Object.prototype.toString.call(window.Promise) !== '[object Function]') {
+    window.Promise = null;
+  }
+</script>
+
+
+
+
+
+
+
+
+
+  
+
+
+
+
+  
+  <script type="text/javascript" src="/lib/jquery/index.js?v=2.1.3"></script>
+
+  
+  <script type="text/javascript" src="/lib/fastclick/lib/fastclick.min.js?v=1.0.6"></script>
+
+  
+  <script type="text/javascript" src="/lib/jquery_lazyload/jquery.lazyload.js?v=1.9.7"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/velocity/velocity.ui.min.js?v=1.2.1"></script>
+
+  
+  <script type="text/javascript" src="/lib/fancybox/source/jquery.fancybox.pack.js?v=2.1.5"></script>
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/utils.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/motion.js?v=5.1.0"></script>
+
+
+
+  
+  
+
+
+  <script type="text/javascript" src="/js/src/affix.js?v=5.1.0"></script>
+
+  <script type="text/javascript" src="/js/src/schemes/pisces.js?v=5.1.0"></script>
+
+
+
+  
+  <script type="text/javascript" src="/js/src/scrollspy.js?v=5.1.0"></script>
+<script type="text/javascript" src="/js/src/post-details.js?v=5.1.0"></script>
+
+
+
+  
+
+
+  <script type="text/javascript" src="/js/src/bootstrap.js?v=5.1.0"></script>
+
+
+
+  
+
+  
+    
+  
+
+  <script type="text/javascript">
+    var duoshuoQuery = {short_name:"canying"};
+    (function() {
+      var ds = document.createElement('script');
+      ds.type = 'text/javascript';ds.async = true;
+      ds.id = 'duoshuo-script';
+      ds.src = (document.location.protocol == 'https:' ? 'https:' : 'http:') + '//static.duoshuo.com/embed.js';
+      ds.charset = 'UTF-8';
+      (document.getElementsByTagName('head')[0]
+      || document.getElementsByTagName('body')[0]).appendChild(ds);
+    })();
+  </script>
+
+  
+    
+    
+    <script src="/lib/ua-parser-js/dist/ua-parser.min.js?v=0.7.9"></script>
+    <script src="/js/src/hook-duoshuo.js"></script>
+  
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <script type="text/javascript">
+    // Popup Window;
+    var isfetched = false;
+    // Search DB path;
+    var search_path = "search.xml";
+    if (search_path.length == 0) {
+      search_path = "search.xml";
+    }
+    var path = "/" + search_path;
+    // monitor main search box;
+
+    function proceedsearch() {
+      $("body").append('<div class="local-search-pop-overlay">').css('overflow', 'hidden');
+      $('.popup').toggle();
+    }
+    // search function;
+    var searchFunc = function(path, search_id, content_id) {
+      'use strict';
+      $.ajax({
+        url: path,
+        dataType: "xml",
+        async: true,
+        success: function( xmlResponse ) {
+          // get the contents from search data
+          isfetched = true;
+          $('.popup').detach().appendTo('.header-inner');
+          var datas = $( "entry", xmlResponse ).map(function() {
+            return {
+              title: $( "title", this ).text(),
+              content: $("content",this).text(),
+              url: $( "url" , this).text()
+            };
+          }).get();
+          var $input = document.getElementById(search_id);
+          var $resultContent = document.getElementById(content_id);
+          $input.addEventListener('input', function(){
+            var matchcounts = 0;
+            var str='<ul class=\"search-result-list\">';
+            var keywords = this.value.trim().toLowerCase().split(/[\s\-]+/);
+            $resultContent.innerHTML = "";
+            if (this.value.trim().length > 1) {
+              // perform local searching
+              datas.forEach(function(data) {
+                var isMatch = false;
+                var content_index = [];
+                var data_title = data.title.trim().toLowerCase();
+                var data_content = data.content.trim().replace(/<[^>]+>/g,"").toLowerCase();
+                var data_url = decodeURIComponent(data.url);
+                var index_title = -1;
+                var index_content = -1;
+                var first_occur = -1;
+                // only match artiles with not empty titles and contents
+                if(data_title != '') {
+                  keywords.forEach(function(keyword, i) {
+                    index_title = data_title.indexOf(keyword);
+                    index_content = data_content.indexOf(keyword);
+                    if( index_title >= 0 || index_content >= 0 ){
+                      isMatch = true;
+                      if (i == 0) {
+                        first_occur = index_content;
+                      }
+                    }
+
+                  });
+                }
+                // show search results
+                if (isMatch) {
+                  matchcounts += 1;
+                  str += "<li><a href='"+ data_url +"' class='search-result-title'>"+ data_title +"</a>";
+                  var content = data.content.trim().replace(/<[^>]+>/g,"");
+                  if (first_occur >= 0) {
+                    // cut out 100 characters
+                    var start = first_occur - 20;
+                    var end = first_occur + 80;
+                    if(start < 0){
+                      start = 0;
+                    }
+                    if(start == 0){
+                      end = 50;
+                    }
+                    if(end > content.length){
+                      end = content.length;
+                    }
+                    var match_content = content.substring(start, end);
+                    // highlight all keywords
+                    keywords.forEach(function(keyword){
+                      var regS = new RegExp(keyword, "gi");
+                      match_content = match_content.replace(regS, "<b class=\"search-keyword\">"+keyword+"</b>");
+                    });
+
+                    str += "<p class=\"search-result\">" + match_content +"...</p>"
+                  }
+                  str += "</li>";
+                }
+              })};
+            str += "</ul>";
+            if (matchcounts == 0) { str = '<div id="no-result"><i class="fa fa-frown-o fa-5x" /></div>' }
+            if (keywords == "") { str = '<div id="no-result"><i class="fa fa-search fa-5x" /></div>' }
+            $resultContent.innerHTML = str;
+          });
+          proceedsearch();
+        }
+      });}
+
+    // handle and trigger popup window;
+    $('.popup-trigger').click(function(e) {
+      e.stopPropagation();
+      if (isfetched == false) {
+        searchFunc(path, 'local-search-input', 'local-search-result');
+      } else {
+        proceedsearch();
+      };
+    });
+
+    $('.popup-btn-close').click(function(e){
+      $('.popup').hide();
+      $(".local-search-pop-overlay").remove();
+      $('body').css('overflow', '');
+    });
+    $('.popup').click(function(e){
+      e.stopPropagation();
+    });
+  </script>
+
+
+  
+
+  
+
+  
+
+  
+
+
+  
+
+</body>
+</html>
