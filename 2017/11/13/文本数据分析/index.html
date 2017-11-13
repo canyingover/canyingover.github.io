@@ -87,28 +87,30 @@
 
 
 
-<meta name="description" content="——三尺青锋怀天下，一骑白马开吴疆。
-安装文档：http://superset.apache.org/installation.html
-创建虚拟环境pip install superset
-激活虚拟环境superset\Scripts\activate superset">
+<meta name="description" content="——从未跟你饮过冰，零度天气看风景。
+典型的文本预处理流程1.分词：nltk.word_tokenize、nltk.sent_tokenize、jieba.cut2.词形归一化：
+
+stemming：词干提取，去除ing,ed，只保留单词主干，NLTK有PoterStermmer、SnowballStemmer、LancasterStemmer。
+lemmatization：词形归并，将单词的各种">
 <meta property="og:type" content="article">
-<meta property="og:title" content="在windows上搭建superset">
-<meta property="og:url" content="http://blog.canying.org/2017/10/15/在windows上搭建superset/index.html">
+<meta property="og:title" content="文本数据分析">
+<meta property="og:url" content="http://blog.canying.org/2017/11/13/文本数据分析/index.html">
 <meta property="og:site_name" content="canying的博客">
-<meta property="og:description" content="——三尺青锋怀天下，一骑白马开吴疆。
-安装文档：http://superset.apache.org/installation.html
-创建虚拟环境pip install superset
-激活虚拟环境superset\Scripts\activate superset">
-<meta property="og:image" content="http://okqlmzer2.bkt.clouddn.com/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20171022212044.png">
-<meta property="og:image" content="http://okqlmzer2.bkt.clouddn.com/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20171022212440.png">
-<meta property="og:updated_time" content="2017-10-28T04:41:02.312Z">
+<meta property="og:description" content="——从未跟你饮过冰，零度天气看风景。
+典型的文本预处理流程1.分词：nltk.word_tokenize、nltk.sent_tokenize、jieba.cut2.词形归一化：
+
+stemming：词干提取，去除ing,ed，只保留单词主干，NLTK有PoterStermmer、SnowballStemmer、LancasterStemmer。
+lemmatization：词形归并，将单词的各种">
+<meta property="og:image" content="https://radimrehurek.com/gensim/models/ldamodel.html">
+<meta property="og:updated_time" content="2017-11-13T13:14:05.103Z">
 <meta name="twitter:card" content="summary">
-<meta name="twitter:title" content="在windows上搭建superset">
-<meta name="twitter:description" content="——三尺青锋怀天下，一骑白马开吴疆。
-安装文档：http://superset.apache.org/installation.html
-创建虚拟环境pip install superset
-激活虚拟环境superset\Scripts\activate superset">
-<meta name="twitter:image" content="http://okqlmzer2.bkt.clouddn.com/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20171022212044.png">
+<meta name="twitter:title" content="文本数据分析">
+<meta name="twitter:description" content="——从未跟你饮过冰，零度天气看风景。
+典型的文本预处理流程1.分词：nltk.word_tokenize、nltk.sent_tokenize、jieba.cut2.词形归一化：
+
+stemming：词干提取，去除ing,ed，只保留单词主干，NLTK有PoterStermmer、SnowballStemmer、LancasterStemmer。
+lemmatization：词形归并，将单词的各种">
+<meta name="twitter:image" content="https://radimrehurek.com/gensim/models/ldamodel.html">
 
 
 
@@ -136,13 +138,13 @@
 
 
 
-  <link rel="canonical" href="http://blog.canying.org/2017/10/15/在windows上搭建superset/"/>
+  <link rel="canonical" href="http://blog.canying.org/2017/11/13/文本数据分析/"/>
 
 
 
 
 
-  <title> 在windows上搭建superset | canying的博客 </title>
+  <title> 文本数据分析 | canying的博客 </title>
 </head>
 
 <body itemscope itemtype="http://schema.org/WebPage" lang="zh-Hans">
@@ -303,7 +305,7 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://blog.canying.org/2017/10/15/在windows上搭建superset/">
+    <link itemprop="mainEntityOfPage" href="http://blog.canying.org/2017/11/13/文本数据分析/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
       <meta itemprop="name" content="canying">
@@ -324,7 +326,7 @@
             
             
               
-                在windows上搭建superset
+                文本数据分析
               
             
           </h1>
@@ -339,8 +341,8 @@
               
                 <span class="post-meta-item-text">发表于</span>
               
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-15T23:29:21+08:00">
-                2017-10-15
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-11-13T20:24:02+08:00">
+                2017-11-13
               </time>
             
 
@@ -355,8 +357,8 @@
               
                 <span class="post-meta-item-text">更新于</span>
               
-              <time title="更新于" itemprop="dateModified" datetime="2017-10-28T12:41:02+08:00">
-                2017-10-28
+              <time title="更新于" itemprop="dateModified" datetime="2017-11-13T21:14:05+08:00">
+                2017-11-13
               </time>
             
           </span>
@@ -374,8 +376,8 @@
               
               
                 <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/BigData/" itemprop="url" rel="index">
-                    <span itemprop="name">BigData</span>
+                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index">
+                    <span itemprop="name">Machine Learning</span>
                   </a>
                 </span>
 
@@ -392,8 +394,8 @@
                 <span class="post-meta-item-icon">
                   <i class="fa fa-comment-o"></i>
                 </span>
-                <a href="/2017/10/15/在windows上搭建superset/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/10/15/在windows上搭建superset/" itemprop="commentCount"></span>
+                <a href="/2017/11/13/文本数据分析/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/11/13/文本数据分析/" itemprop="commentCount"></span>
                 </a>
               </span>
             
@@ -419,18 +421,19 @@
       
 
       
-        <p><em>——三尺青锋怀天下，一骑白马开吴疆。</em></p>
-<p>安装文档：<a href="http://superset.apache.org/installation.html" target="_blank" rel="external">http://superset.apache.org/installation.html</a></p>
-<h4 id="创建虚拟环境"><a href="#创建虚拟环境" class="headerlink" title="创建虚拟环境"></a>创建虚拟环境</h4><p><code>pip install superset</code></p>
-<h4 id="激活虚拟环境"><a href="#激活虚拟环境" class="headerlink" title="激活虚拟环境"></a>激活虚拟环境</h4><p><code>superset\Scripts\activate superset</code><br><a id="more"></a> </p>
-<h4 id="初始化的事情基本与文档一致，只是需要切换到envs-superset-Scripts下，将所有superset替换成python-superset"><a href="#初始化的事情基本与文档一致，只是需要切换到envs-superset-Scripts下，将所有superset替换成python-superset" class="headerlink" title="初始化的事情基本与文档一致，只是需要切换到envs\superset\Scripts下，将所有superset替换成python superset"></a>初始化的事情基本与文档一致，只是需要切换到envs\superset\Scripts下，将所有<code>superset</code>替换成<code>python superset</code></h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># Install superset</span></div><div class="line">pip install superset</div><div class="line"></div><div class="line"><span class="comment"># Create an admin user (you will be prompted to set username, first and last name before setting a password)</span></div><div class="line">fabmanager create-admin --app superset</div><div class="line"></div><div class="line"><span class="comment"># Initialize the database</span></div><div class="line">python superset db upgrade</div><div class="line"></div><div class="line"><span class="comment"># Load some data to play with</span></div><div class="line">python superset load_examples</div><div class="line"></div><div class="line"><span class="comment"># Create default roles and permissions</span></div><div class="line">python superset init</div><div class="line"></div><div class="line"><span class="comment"># Start the web server on port 8088, use -p to bind to another port</span></div><div class="line">python superset runserver</div><div class="line"></div><div class="line"><span class="comment"># To start a development web server, use the -d switch</span></div><div class="line"><span class="comment"># python superset runserver -d</span></div></pre></td></tr></table></figure>
-<h4 id="连接数据库进行可视化"><a href="#连接数据库进行可视化" class="headerlink" title="连接数据库进行可视化"></a>连接数据库进行可视化</h4><p>打开<a href="http://localhost:8088" target="_blank" rel="external">http://localhost:8088</a>，输入原先设置好的账号密码即可登陆。登陆后打开sources-databases，新建一个数据库连接，如下图修改相关信息即可，之后就可以使用sql提取数据并进行可视化了。<br><img src="http://okqlmzer2.bkt.clouddn.com/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20171022212044.png" alt=""><br><img src="http://okqlmzer2.bkt.clouddn.com/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20171022212440.png" alt=""></p>
-<h4 id="相关问题"><a href="#相关问题" class="headerlink" title="相关问题"></a>相关问题</h4><ul>
-<li>sasl.h找不到：<br>下载合适版本的whl文件手动安装<a href="http://www.lfd.uci.edu/~gohlke/pythonlibs/#sasl" target="_blank" rel="external">http://www.lfd.uci.edu/~gohlke/pythonlibs/#sasl</a>。</li>
-<li>“module” object has no attribute ‘SIGALRM‘错误：<br>windows下依赖包不兼容，把signal所在行都注释，下面再加一个pass就好了，文件在superset/utils.py。</li>
-<li>localhost:8088无法打开：<br>可能是所处环境设置了代理，使用火狐浏览器设置无代理模式或者使用内网ip进行访问。</li>
-<li>由于 gunicorn 不支持 Windows，所以只能运行开发环境。</li>
+        <p><em>——从未跟你饮过冰，零度天气看风景。</em></p>
+<h4 id="典型的文本预处理流程"><a href="#典型的文本预处理流程" class="headerlink" title="典型的文本预处理流程"></a>典型的文本预处理流程</h4><p>1.分词：<code>nltk.word_tokenize</code>、<code>nltk.sent_tokenize</code>、<code>jieba.cut</code><br>2.词形归一化：</p>
+<ul>
+<li>stemming：词干提取，去除ing,ed，只保留单词主干，NLTK有PoterStermmer、SnowballStemmer、LancasterStemmer。</li>
+<li>lemmatization：词形归并，将单词的各种词形归并成一种形式，NLTK有WordNetLemmatizer，并且可以指定词性。<br>3.去除停用词：可以使用nltk.corpus的stopwords，也可以自己下载停用词</li>
 </ul>
+<a id="more"></a>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> nltk</div><div class="line"><span class="keyword">from</span> nltk.stem <span class="keyword">import</span> WordNetLemmatizer</div><div class="line"><span class="keyword">from</span> nltk.corpus <span class="keyword">import</span> stopwords</div><div class="line"></div><div class="line"><span class="comment"># 原始文本</span></div><div class="line">raw_text = <span class="string">'Life is like a box of chocolates. You never know what you\'re gonna get.'</span></div><div class="line"></div><div class="line"><span class="comment"># 分词</span></div><div class="line">raw_words = nltk.word_tokenize(raw_text)</div><div class="line"></div><div class="line"><span class="comment"># 词形归一化</span></div><div class="line">wordnet_lematizer = WordNetLemmatizer()</div><div class="line">words = [wordnet_lematizer.lemmatize(raw_word) <span class="keyword">for</span> raw_word <span class="keyword">in</span> raw_words]</div><div class="line"></div><div class="line"><span class="comment"># 去除停用词</span></div><div class="line">filtered_words = [word <span class="keyword">for</span> word <span class="keyword">in</span> words <span class="keyword">if</span> word <span class="keyword">not</span> <span class="keyword">in</span> stopwords.words(<span class="string">'english'</span>)]</div><div class="line"></div><div class="line">print(<span class="string">'原始文本：'</span>, raw_text)</div><div class="line">print(<span class="string">'预处理结果：'</span>, filtered_words)</div></pre></td></tr></table></figure>
+<h4 id="TF-IDF"><a href="#TF-IDF" class="headerlink" title="TF-IDF"></a>TF-IDF</h4><p>TF:Term Frequency(词频)，某个词在该文件中出现的次数<br>IDF:Inverse Document Frequency(逆文档频率)，衡量某个词普遍的重要性，也有其他计算形式。<br>TF-IDF=TF*IDF</p>
+<h5 id="NLTK中的TF-IDF"><a href="#NLTK中的TF-IDF" class="headerlink" title="NLTK中的TF-IDF"></a>NLTK中的TF-IDF</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> nltk.text <span class="keyword">import</span> TextCollection</div><div class="line"></div><div class="line">text1 = <span class="string">'I like the movie so much '</span></div><div class="line">text2 = <span class="string">'That is a good movie '</span></div><div class="line">text3 = <span class="string">'This is a great one '</span></div><div class="line">text4 = <span class="string">'That is a really bad movie '</span></div><div class="line">text5 = <span class="string">'This is a terrible movie'</span></div><div class="line"></div><div class="line"><span class="comment"># 构建TextCollection对象</span></div><div class="line">tc = TextCollection([text1, text2, text3, </div><div class="line">                        text4, text5])</div><div class="line">new_text = <span class="string">'That one is a good movie. This is so good!'</span></div><div class="line">word = <span class="string">'That'</span></div><div class="line">tf_idf_val = tc.tf_idf(word, new_text)</div><div class="line">print(<span class="string">'&#123;&#125;的TF-IDF值为：&#123;&#125;'</span>.format(word, tf_idf_val))</div></pre></td></tr></table></figure>
+<h5 id="sklearn中的TF-IDF"><a href="#sklearn中的TF-IDF" class="headerlink" title="sklearn中的TF-IDF"></a>sklearn中的TF-IDF</h5><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">from</span> sklearn.feature_extraction.text <span class="keyword">import</span> TfidfVectorizer</div><div class="line"></div><div class="line">vectorizer = TfidfVectorizer()</div><div class="line">feat = vectorizer.fit_transform([text1, text2, text3, text4, text5])</div><div class="line">feature_names = vectorizer.get_feature_names()</div><div class="line">feat_array = feat.toarray()</div><div class="line">print(feature_names)</div><div class="line">print(feat_array.shape)</div><div class="line">print(vectorizer.transform([new_text]).toarray())</div></pre></td></tr></table></figure>
+<h4 id="主题模型及LDA"><a href="#主题模型及LDA" class="headerlink" title="主题模型及LDA"></a>主题模型及LDA</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div></pre></td><td class="code"><pre><div class="line"><span class="keyword">import</span> jieba</div><div class="line"><span class="keyword">import</span> gensim</div><div class="line"><span class="keyword">from</span> gensim <span class="keyword">import</span> corpora, models</div><div class="line"></div><div class="line">ch_text1 = <span class="string">' 非常失望，剧本完全敷衍了事，主线剧情没突破大家可以理解，可所有的人物都缺乏动机，正邪之间、妇联内部都没什么火花。团结-分裂-团结的三段式虽然老套但其实也可以利用积攒下来的形象魅力搞出意思，但剧本写得非常肤浅、平面。场面上调度混乱呆板，满屏的铁甲审美疲劳。只有笑点算得上差强人意。'</span></div><div class="line">ch_text2 = <span class="string">' 2015年度最失望作品。以为面面俱到，实则画蛇添足；以为主题深刻，实则老调重弹；以为推陈出新，实则俗不可耐；以为场面很high，实则high劲不足。气！上一集的趣味全无，这集的笑点明显刻意到心虚。全片没有任何片段给我有紧张激动的时候，太弱了，跟奥创一样。'</span></div><div class="line">ch_text3 = <span class="string">' 《铁人2》中勾引钢铁侠，《妇联1》中勾引鹰眼，《美队2》中勾引美国队长，在《妇联2》中终于……跟绿巨人表白了，黑寡妇用实际行动告诉了我们什么叫忠贞不二；而且为了治疗不孕不育连作战武器都变成了两支验孕棒(坚决相信快银没有死，后面还得回来)'</span></div><div class="line">ch_text4 = <span class="string">' 虽然从头打到尾，但是真的很无聊啊。'</span></div><div class="line">ch_text5 = <span class="string">' 剧情不如第一集好玩了，全靠密集笑点在提神。僧多粥少的直接后果就是每部寡姐都要换着队友谈恋爱，这特么比打斗还辛苦啊，真心求放过～～～（结尾彩蛋还以为是洛基呢，结果我呸！）'</span></div><div class="line"></div><div class="line">ch_texts = [ch_text1, ch_text2, ch_text3, ch_text4, ch_text5]</div><div class="line">doc_set = [list(jieba.cut(ch_text, cut_all=<span class="keyword">False</span>)) <span class="keyword">for</span> ch_text <span class="keyword">in</span> ch_texts]</div><div class="line">dictionary = corpora.Dictionary(doc_set)</div><div class="line">corpus = [ dictionary.doc2bow(doc) <span class="keyword">for</span> doc <span class="keyword">in</span> doc_set[:<span class="number">7</span>] ]</div><div class="line">lda_model = gensim.models.ldamodel.LdaModel(corpus=corpus, id2word=dictionary, num_topics=<span class="number">5</span>)</div><div class="line">lda_model.show_topics()</div></pre></td></tr></table></figure>
+<p><img src="https://radimrehurek.com/gensim/models/ldamodel.html" alt="gesim LDA模型"></p>
 
       
     </div>
@@ -461,8 +464,8 @@
         <div class="post-nav">
           <div class="post-nav-next post-nav-item">
             
-              <a href="/2017/07/23/文本相似度/" rel="next" title="文本相似度">
-                <i class="fa fa-chevron-left"></i> 文本相似度
+              <a href="/2017/10/30/图像数据特征化处理/" rel="next" title="图像数据特征化处理">
+                <i class="fa fa-chevron-left"></i> 图像数据特征化处理
               </a>
             
           </div>
@@ -470,10 +473,6 @@
           <span class="post-nav-divider"></span>
 
           <div class="post-nav-prev post-nav-item">
-            
-              <a href="/2017/10/22/sklearn机器学习一/" rel="prev" title="sklearn机器学习一">
-                sklearn机器学习一 <i class="fa fa-chevron-right"></i>
-              </a>
             
           </div>
         </div>
@@ -499,8 +498,8 @@
           
   <div class="comments" id="comments">
     
-      <div class="ds-thread" data-thread-key="2017/10/15/在windows上搭建superset/"
-           data-title="在windows上搭建superset" data-url="http://blog.canying.org/2017/10/15/在windows上搭建superset/">
+      <div class="ds-thread" data-thread-key="2017/11/13/文本数据分析/"
+           data-title="文本数据分析" data-url="http://blog.canying.org/2017/11/13/文本数据分析/">
       </div>
     
   </div>
@@ -595,7 +594,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#创建虚拟环境"><span class="nav-number">1.</span> <span class="nav-text">创建虚拟环境</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#激活虚拟环境"><span class="nav-number">2.</span> <span class="nav-text">激活虚拟环境</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#初始化的事情基本与文档一致，只是需要切换到envs-superset-Scripts下，将所有superset替换成python-superset"><span class="nav-number">3.</span> <span class="nav-text">初始化的事情基本与文档一致，只是需要切换到envs\superset\Scripts下，将所有superset替换成python superset</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#连接数据库进行可视化"><span class="nav-number">4.</span> <span class="nav-text">连接数据库进行可视化</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#相关问题"><span class="nav-number">5.</span> <span class="nav-text">相关问题</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-4"><a class="nav-link" href="#典型的文本预处理流程"><span class="nav-number">1.</span> <span class="nav-text">典型的文本预处理流程</span></a></li><li class="nav-item nav-level-4"><a class="nav-link" href="#TF-IDF"><span class="nav-number">2.</span> <span class="nav-text">TF-IDF</span></a><ol class="nav-child"><li class="nav-item nav-level-5"><a class="nav-link" href="#NLTK中的TF-IDF"><span class="nav-number">2.1.</span> <span class="nav-text">NLTK中的TF-IDF</span></a></li><li class="nav-item nav-level-5"><a class="nav-link" href="#sklearn中的TF-IDF"><span class="nav-number">2.2.</span> <span class="nav-text">sklearn中的TF-IDF</span></a></li></ol></li><li class="nav-item nav-level-4"><a class="nav-link" href="#主题模型及LDA"><span class="nav-number">3.</span> <span class="nav-text">主题模型及LDA</span></a></li></ol></div>
             
 
           </div>
