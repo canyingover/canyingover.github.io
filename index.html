@@ -289,6 +289,171 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://blog.canying.org/2018/01/08/randomforest应用/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="canying">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="http://okqlmzer2.bkt.clouddn.com/cb0813lol10s.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="canying的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2018/01/08/randomforest应用/" itemprop="url">
+                  randomforest应用
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2018-01-08T11:34:40+08:00">
+                2018-01-08
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2018-01-08T12:10:52+08:00">
+                2018-01-08
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index">
+                    <span itemprop="name">Machine Learning</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2018/01/08/randomforest应用/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2018/01/08/randomforest应用/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <p><em>——你好！2018！</em></p>
+<h4 id="前话"><a href="#前话" class="headerlink" title="前话"></a>前话</h4><p><a href="http://okqlmzer2.bkt.clouddn.com/ListenToTheFinal.m4a" target="_blank" rel="external">2017年有人弹了一首童年祝我生日快乐，还送来了一个拼装版的古罗哈哈哈！</a><br> <img src="http://okqlmzer2.bkt.clouddn.com/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20180108114048.jpg" width="300" height="200" alt="古罗1" align="center"><br> <img src="http://okqlmzer2.bkt.clouddn.com/%E5%BE%AE%E4%BF%A1%E5%9B%BE%E7%89%87_20180108114056.jpg" width="300" height="200" alt="古罗2" align="center"></p>
+<h4 id="进入正题"><a href="#进入正题" class="headerlink" title="进入正题"></a>进入正题</h4><p>这是一个对<code>sklearn</code>里面随机森林算法的业务应用，主要是为了预测数据是否异常，给出正常与异常概率，这里就做一下笔记。</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># -*- coding: utf-8 -*-</span></div><div class="line"><span class="keyword">import</span> pickle</div><div class="line"><span class="keyword">import</span> codecs</div><div class="line"><span class="keyword">import</span> pandas</div><div class="line"><span class="keyword">import</span> pandas <span class="keyword">as</span> pd</div><div class="line"><span class="keyword">import</span> json</div><div class="line"><span class="keyword">import</span> re</div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">re_match</span><span class="params">(mail)</span>:</span></div><div class="line">    a = []</div><div class="line">    result = re.findall(<span class="string">ur'[a-z]+|\d+|@.+|-+|_+|\.+'</span>, mail)</div><div class="line">    <span class="keyword">if</span> result:</div><div class="line">        <span class="keyword">for</span> i <span class="keyword">in</span> result:</div><div class="line">            <span class="keyword">if</span> re.match(<span class="string">ur'[a-z]+'</span>, i):</div><div class="line">                a.append(<span class="string">'C'</span>)</div><div class="line">            <span class="keyword">elif</span> re.match(<span class="string">ur'\d+'</span>, i):</div><div class="line">                a.append(<span class="string">'N'</span>)</div><div class="line">            <span class="keyword">elif</span> re.match(<span class="string">ur'@.+'</span>, i):</div><div class="line">                a.append(<span class="string">'@'</span>)</div><div class="line">            <span class="keyword">elif</span> re.match(<span class="string">ur'_+'</span>, i):</div><div class="line">                a.append(<span class="string">'_'</span>)</div><div class="line">            <span class="keyword">elif</span> re.match(<span class="string">ur'-+'</span>, i):</div><div class="line">                a.append(<span class="string">'-'</span>)</div><div class="line">            <span class="keyword">elif</span> re.match(<span class="string">ur'\.+'</span>, i):</div><div class="line">                a.append(<span class="string">'.'</span>)</div><div class="line">            <span class="keyword">else</span>:</div><div class="line">                a.append(<span class="string">'E'</span>)</div><div class="line">    <span class="keyword">else</span>:</div><div class="line">        a.append(<span class="string">'Q'</span>)</div><div class="line"></div><div class="line">    <span class="keyword">return</span> <span class="string">''</span>.join(a)</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">difference</span><span class="params">(left, right, on)</span>:</span></div><div class="line">    <span class="string">"""</span></div><div class="line">    difference of two dataframes</div><div class="line">    :param left: left dataframe</div><div class="line">    :param right: right dataframe</div><div class="line">    :param on: join key</div><div class="line">    :return: difference dataframe</div><div class="line">    """</div><div class="line">    df = pd.merge(left, right, how=<span class="string">'left'</span>, on=on)</div><div class="line">    left_columns = left.columns</div><div class="line">    col_y = df.columns[left_columns.size]</div><div class="line">    df = df[df[col_y].isnull()]</div><div class="line">    df = df.ix[:, <span class="number">0</span>:left_columns.size]</div><div class="line">    df.columns = left_columns</div><div class="line">    <span class="keyword">return</span> df</div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">dataformat</span><span class="params">(filename)</span>:</span></div><div class="line">    <span class="comment">#cur_path = os.path.abspath('.')</span></div><div class="line">    pattern = <span class="string">ur'^\d&#123;11&#125;$|@qq|^m1\d&#123;10&#125;_\d+@|^m1\d&#123;10&#125;@'</span></div><div class="line"></div><div class="line">    df_train = pd.read_csv(filename, encoding=<span class="string">'utf-8'</span>, sep=<span class="string">'\t'</span>, index_col=<span class="keyword">False</span>, error_bad_lines=<span class="keyword">False</span>)</div><div class="line">    p_filter = df_train.loc[:,<span class="string">'aid_to_urs'</span>].copy().str.contains(pattern)</div><div class="line">    df_train = df_train[~p_filter]</div><div class="line"></div><div class="line">    df_train.rename(columns = &#123;<span class="string">u'设备变化'</span>:<span class="string">u'device_change'</span>&#125;, inplace=<span class="keyword">True</span>)</div><div class="line">    df_train.rename(columns = &#123;<span class="string">u'地区转移'</span>:<span class="string">u'area_change'</span>&#125;, inplace=<span class="keyword">True</span>)</div><div class="line"></div><div class="line">    X = df_train.copy()</div><div class="line"></div><div class="line">    X = X.loc[X[<span class="string">'create_channel'</span>].isin([<span class="string">'netease'</span>, <span class="string">'netease.blued_cps_dev'</span>, <span class="string">'app_store'</span>, <span class="string">'uc_platform'</span>, <span class="string">'bilibili_sdk'</span>])]</div><div class="line">    X.loc[:,<span class="string">'mail_rule'</span>] = X.loc[:,<span class="string">'aid_to_urs'</span>].map(re_match)</div><div class="line">    <span class="keyword">print</span> X.shape</div><div class="line">    <span class="keyword">with</span> codecs.open(<span class="string">'namerule_json.json'</span>, <span class="string">'r'</span>, encoding=<span class="string">'utf-8'</span>) <span class="keyword">as</span> f:</div><div class="line">        namerule_map = json.load(f)</div><div class="line">    <span class="keyword">with</span> codecs.open(<span class="string">'mailrule_json.json'</span>, <span class="string">'r'</span>, encoding=<span class="string">'utf-8'</span>) <span class="keyword">as</span> f:</div><div class="line">        mailrule_map = json.load(f)</div><div class="line">    bool_map = &#123;<span class="keyword">False</span>:<span class="number">0</span>,<span class="keyword">True</span>:<span class="number">1</span>&#125;</div><div class="line"></div><div class="line">    X = X.loc[X[<span class="string">'namerule'</span>].isin(namerule_map.keys())]</div><div class="line">    X = X.loc[X[<span class="string">'mail_rule'</span>].isin(mailrule_map.keys())]</div><div class="line"></div><div class="line"></div><div class="line">    X[<span class="string">'namerule'</span>] = X[<span class="string">'namerule'</span>].map(namerule_map)</div><div class="line">    X[<span class="string">'mail_rule'</span>] = X[<span class="string">'mail_rule'</span>].map(mailrule_map)</div><div class="line">    X[<span class="string">'device_change'</span>] = X[<span class="string">'device_change'</span>].map(bool_map)</div><div class="line">    X[<span class="string">'area_change'</span>] = X[<span class="string">'area_change'</span>].map(bool_map)</div><div class="line"></div><div class="line">    unknown = difference(df_train, X, <span class="string">'role_id'</span>)</div><div class="line">    unknown.to_csv(<span class="string">'unknown.txt'</span>, encoding=<span class="string">'utf-8'</span>, sep=<span class="string">'\t'</span>, index=<span class="keyword">False</span>)</div><div class="line"></div><div class="line">    <span class="keyword">return</span> X</div><div class="line"></div><div class="line"></div><div class="line"><span class="function"><span class="keyword">def</span> <span class="title">valueTokey</span><span class="params">(value)</span>:</span></div><div class="line">    <span class="keyword">with</span> codecs.open(<span class="string">'namerule_json.json'</span>, <span class="string">'r'</span>, encoding=<span class="string">'utf-8'</span>) <span class="keyword">as</span> f:</div><div class="line">        namerule_map = json.load(f)</div><div class="line">    <span class="keyword">return</span> namerule_map.keys()[namerule_map.values().index(value)]</div><div class="line"></div><div class="line"></div><div class="line"><span class="keyword">if</span> __name__ == <span class="string">'__main__'</span>:</div><div class="line">    filename = <span class="string">u'ForPredict.txt'</span></div><div class="line">    data = dataformat(filename)</div><div class="line">    arr_need = [<span class="string">u'device_change'</span>, <span class="string">u'area_change'</span>, <span class="string">u'namerule'</span>, <span class="string">u'narulecount'</span></div><div class="line">                , <span class="string">u'urs_max_lv'</span>, <span class="string">u'root'</span>, <span class="string">u'create_channelcount'</span>, <span class="string">u'create_ip_ids'</span></div><div class="line">                , <span class="string">u'create_ip_udid_sl'</span>, <span class="string">u'mail_rule'</span>]</div><div class="line"></div><div class="line">    X = data.loc[:,arr_need]</div><div class="line">    <span class="keyword">with</span> codecs.open(<span class="string">'RandomForestForChuShiHao.pickle'</span>,<span class="string">'r'</span>) <span class="keyword">as</span> f:</div><div class="line">        RandomForestForChuShiHao = pickle.load(f)</div><div class="line"></div><div class="line">    <span class="comment"># result = RandomForestForChuShiHao.predict(X)</span></div><div class="line"></div><div class="line">    <span class="comment"># print result</span></div><div class="line">    y_pre = RandomForestForChuShiHao.predict_proba(X)</div><div class="line">    dafr = pd.DataFrame(y_pre, columns=RandomForestForChuShiHao.classes_)</div><div class="line"></div><div class="line"></div><div class="line">    data[<span class="string">'namerule'</span>] = data[<span class="string">'namerule'</span>].map(valueTokey)</div><div class="line">    <span class="keyword">print</span> dafr.head(<span class="number">5</span>)</div><div class="line">    data.loc[:, <span class="string">'result_good'</span>] = y_pre[:,<span class="number">1</span>]</div><div class="line">    data.to_csv(<span class="string">'predict_result.txt'</span>, encoding=<span class="string">'utf-8'</span>, sep=<span class="string">'\t'</span>, index=<span class="keyword">False</span>)</div><div class="line">    <span class="comment">#print data.head(3)</span></div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://blog.canying.org/2017/11/20/社交网络分析/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1801,174 +1966,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://blog.canying.org/2017/03/04/词云制作/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="canying">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="http://okqlmzer2.bkt.clouddn.com/cb0813lol10s.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="canying的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/03/04/词云制作/" itemprop="url">
-                  词云制作
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-03-04T10:30:46+08:00">
-                2017-03-04
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2017-10-28T12:45:52+08:00">
-                2017-10-28
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Python/" itemprop="url" rel="index">
-                    <span itemprop="name">Python</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/03/04/词云制作/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/03/04/词云制作/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p><em>——你有最美的眼睛倒映着辰星，有最美的颜色如彩虹般绚丽</em></p>
-<p>两种方式制作词云</p>
-<h2 id="使用wordcloud制作词云"><a href="#使用wordcloud制作词云" class="headerlink" title="使用wordcloud制作词云"></a>使用<code>wordcloud</code>制作词云</h2><h3 id="效果"><a href="#效果" class="headerlink" title="效果"></a>效果</h3><p>可以直接使用默认设置，或自定义设置<br>（default_color）<br><img src="http://okqlmzer2.bkt.clouddn.com/default_color.png" alt="dafault_color"><br>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/03/04/词云制作/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -2018,7 +2015,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">15</span>
+                <span class="site-state-item-count">16</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
@@ -2078,7 +2075,7 @@
         <div class="copyright" >
   
   &copy; 
-  <span itemprop="copyrightYear">2017</span>
+  <span itemprop="copyrightYear">2018</span>
   <span class="with-love">
     <i class="fa fa-heart"></i>
   </span>
