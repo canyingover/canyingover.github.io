@@ -289,6 +289,188 @@
   
 
   <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
+    <link itemprop="mainEntityOfPage" href="http://cangying.fun/2019/06/24/keras入门/">
+
+    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
+      <meta itemprop="name" content="canying">
+      <meta itemprop="description" content="">
+      <meta itemprop="image" content="/images/touxiang.jpg">
+    </span>
+
+    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
+      <meta itemprop="name" content="canying的博客">
+    </span>
+
+    
+      <header class="post-header">
+
+        
+        
+          <h1 class="post-title" itemprop="name headline">
+            
+            
+              
+                
+                <a class="post-title-link" href="/2019/06/24/keras入门/" itemprop="url">
+                  keras入门
+                </a>
+              
+            
+          </h1>
+        
+
+        <div class="post-meta">
+          <span class="post-time">
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">发表于</span>
+              
+              <time title="创建于" itemprop="dateCreated datePublished" datetime="2019-06-24T17:15:43+08:00">
+                2019-06-24
+              </time>
+            
+
+            
+              <span class="post-meta-divider">|</span>
+            
+
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-calendar-check-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">更新于</span>
+              
+              <time title="更新于" itemprop="dateModified" datetime="2019-06-24T17:40:53+08:00">
+                2019-06-24
+              </time>
+            
+          </span>
+
+          
+            <span class="post-category" >
+            
+              <span class="post-meta-divider">|</span>
+            
+              <span class="post-meta-item-icon">
+                <i class="fa fa-folder-o"></i>
+              </span>
+              
+                <span class="post-meta-item-text">分类于</span>
+              
+              
+                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
+                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index">
+                    <span itemprop="name">Machine Learning</span>
+                  </a>
+                </span>
+
+                
+                
+              
+            </span>
+          
+
+          
+            
+              <span class="post-comments-count">
+                <span class="post-meta-divider">|</span>
+                <span class="post-meta-item-icon">
+                  <i class="fa fa-comment-o"></i>
+                </span>
+                <a href="/2019/06/24/keras入门/#comments" itemprop="discussionUrl">
+                  <span class="post-comments-count ds-thread-count" data-thread-key="2019/06/24/keras入门/" itemprop="commentCount"></span>
+                </a>
+              </span>
+            
+          
+
+          
+          
+
+          
+
+          
+
+          
+
+        </div>
+      </header>
+    
+
+
+    <div class="post-body" itemprop="articleBody">
+
+      
+      
+
+      
+        
+          
+            <h4 id="主要概念"><a href="#主要概念" class="headerlink" title="主要概念"></a>主要概念</h4><ul>
+<li>张量<ul>
+<li>张量(tensor)，可以看作是向量、矩阵的自然推广，用来表示广泛的数据类型。张量的阶数也叫维度。</li>
+<li>0阶张量,即标量,是一个数;1阶张量,即向量,一组有序排列的数;阶张量,即矩阵,一组向量有序的排列起来;3阶张量，即立方体，一组矩阵上下排列起来</li>
+</ul>
+</li>
+<li>数据结构（目前主要有两种方式来表示张量）<ul>
+<li>th模式或channels_first模式，Theano和caffe使用此模式。对于100张RGB3通道的16×32（高为16宽为32）彩色图，th表示方式：（100,3,16,32）</li>
+<li>tf模式或channels_last模式，TensorFlow使用此模式。对于100张RGB3通道的16×32（高为16宽为32）彩色图，tf表示方式：（100,16,32,3）</li>
+</ul>
+</li>
+<li>Keras有两种类型的模型，序贯模型（Sequential）和函数式模型（Model），函数式模型应用更为广泛，序贯模型是函数式模型的一种特殊情况。<ul>
+<li>序贯模型（Sequential):单输入单输出，一条路通到底，层与层之间只有相邻关系，没有跨层连接。这种模型编译速度快，操作也比较简单</li>
+<li>函数式模型（Model）：多输入多输出，层与层之间任意连接。这种模型编译速度慢。</li>
+</ul>
+</li>
+</ul>
+<h4 id="keras的模块结构"><a href="#keras的模块结构" class="headerlink" title="keras的模块结构"></a>keras的模块结构</h4><p><img src="/images/keras1.jpg" alt=""></p>
+<p><a href="https://keras.io/" target="_blank" rel="external">Keras文档：https://keras.io/</a></p>
+<h4 id="使用keras搭建一个神经网络的流程"><a href="#使用keras搭建一个神经网络的流程" class="headerlink" title="使用keras搭建一个神经网络的流程"></a>使用keras搭建一个神经网络的流程</h4><p><img src="/images/keras2.jpg" alt=""></p>
+<h4 id="搭建一个卷积神经网络"><a href="#搭建一个卷积神经网络" class="headerlink" title="搭建一个卷积神经网络"></a>搭建一个卷积神经网络</h4><figure class="highlight python"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line"></div><div class="line"><span class="keyword">pass</span></div></pre></td></tr></table></figure>
+
+          
+        
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+    <div>
+      
+    </div>
+
+
+    <footer class="post-footer">
+      
+
+      
+
+      
+
+      
+      
+        <div class="post-eof"></div>
+      
+    </footer>
+  </article>
+
+
+    
+      
+
+  
+
+  
+  
+  
+
+  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
     <link itemprop="mainEntityOfPage" href="http://cangying.fun/2019/06/16/模板匹配-浮窗检测/">
 
     <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
@@ -1797,177 +1979,6 @@
 
 
     
-      
-
-  
-
-  
-  
-  
-
-  <article class="post post-type-normal " itemscope itemtype="http://schema.org/Article">
-    <link itemprop="mainEntityOfPage" href="http://cangying.fun/2017/10/29/sklearn机器学习二/">
-
-    <span hidden itemprop="author" itemscope itemtype="http://schema.org/Person">
-      <meta itemprop="name" content="canying">
-      <meta itemprop="description" content="">
-      <meta itemprop="image" content="/images/touxiang.jpg">
-    </span>
-
-    <span hidden itemprop="publisher" itemscope itemtype="http://schema.org/Organization">
-      <meta itemprop="name" content="canying的博客">
-    </span>
-
-    
-      <header class="post-header">
-
-        
-        
-          <h1 class="post-title" itemprop="name headline">
-            
-            
-              
-                
-                <a class="post-title-link" href="/2017/10/29/sklearn机器学习二/" itemprop="url">
-                  sklearn机器学习二
-                </a>
-              
-            
-          </h1>
-        
-
-        <div class="post-meta">
-          <span class="post-time">
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">发表于</span>
-              
-              <time title="创建于" itemprop="dateCreated datePublished" datetime="2017-10-29T16:36:17+08:00">
-                2017-10-29
-              </time>
-            
-
-            
-              <span class="post-meta-divider">|</span>
-            
-
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-calendar-check-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">更新于</span>
-              
-              <time title="更新于" itemprop="dateModified" datetime="2017-10-29T21:09:24+08:00">
-                2017-10-29
-              </time>
-            
-          </span>
-
-          
-            <span class="post-category" >
-            
-              <span class="post-meta-divider">|</span>
-            
-              <span class="post-meta-item-icon">
-                <i class="fa fa-folder-o"></i>
-              </span>
-              
-                <span class="post-meta-item-text">分类于</span>
-              
-              
-                <span itemprop="about" itemscope itemtype="http://schema.org/Thing">
-                  <a href="/categories/Machine-Learning/" itemprop="url" rel="index">
-                    <span itemprop="name">Machine Learning</span>
-                  </a>
-                </span>
-
-                
-                
-              
-            </span>
-          
-
-          
-            
-              <span class="post-comments-count">
-                <span class="post-meta-divider">|</span>
-                <span class="post-meta-item-icon">
-                  <i class="fa fa-comment-o"></i>
-                </span>
-                <a href="/2017/10/29/sklearn机器学习二/#comments" itemprop="discussionUrl">
-                  <span class="post-comments-count ds-thread-count" data-thread-key="2017/10/29/sklearn机器学习二/" itemprop="commentCount"></span>
-                </a>
-              </span>
-            
-          
-
-          
-          
-
-          
-
-          
-
-          
-
-        </div>
-      </header>
-    
-
-
-    <div class="post-body" itemprop="articleBody">
-
-      
-      
-
-      
-        
-          <p><em>——子规夜半犹啼血，不信东风唤不回。</em></p>
-<h4 id="特征工程"><a href="#特征工程" class="headerlink" title="特征工程"></a>特征工程</h4><ul>
-<li>数值型：可直接使用，也可以进行归一化、标准化提高模型的性能<br><code>sklearn.preprocessing.MinMaxScaler()</code></li>
-<li>有序型：转换成数值，A–1，B–2，C–3</li>
-<li>类别型：独热编码<br><code>sklearn.preprocessing.OneHotEncoder()</code></li>
-</ul>
-          <!--noindex-->
-          <div class="post-button text-center">
-            <a class="btn" href="/2017/10/29/sklearn机器学习二/#more" rel="contents">
-              阅读全文 &raquo;
-            </a>
-          </div>
-          <!--/noindex-->
-        
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-    <div>
-      
-    </div>
-
-
-    <footer class="post-footer">
-      
-
-      
-
-      
-
-      
-      
-        <div class="post-eof"></div>
-      
-    </footer>
-  </article>
-
-
-    
   </section>
 
   
@@ -2017,7 +2028,7 @@
           
             <div class="site-state-item site-state-posts">
               <a href="/archives">
-                <span class="site-state-item-count">21</span>
+                <span class="site-state-item-count">22</span>
                 <span class="site-state-item-name">日志</span>
               </a>
             </div>
